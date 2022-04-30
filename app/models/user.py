@@ -15,6 +15,9 @@ class User(db.Model, UserMixin):
     private = db.Column(db.Boolean, nullable=False)
     profile_pic = db.Column(db.String(5000))
 
+    comments = db.relationships('Comment', back_populates='user')
+    posts = db.relationships('Post', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password
