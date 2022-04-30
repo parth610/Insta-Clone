@@ -12,8 +12,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
-    private = db.Column(db.Boolean, nullable=False  )
+    private = db.Column(db.Boolean, nullable=False)
+    profile_pic = db.Column(db.String(5000))
 
     @property
     def password(self):
@@ -33,5 +33,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'private': self.private, 
+            'private': self.private,
+            'profile_pic': self.profile_pic
         }
