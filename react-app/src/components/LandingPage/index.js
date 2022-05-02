@@ -18,13 +18,17 @@ const LandingPage = () => {
         {showSignUp ?
         <div className='signup-form-container'>
           <SignUpForm />
-          Already have an account?
-          <button className='show-log-in-form' onClick={() => setShowSignUp(false)}>Log in</button>
+          <div className='forms-footer'>
+            Already have an account?
+            <button className='show-log-in-form' onClick={() => setShowSignUp(false)}>Log in</button>
+          </div>
         </div> :
         <div className='login-form-container'>
           <LoginForm />
-          Don't have an account?
-          <button className='show-sign-up-form' onClick={() => setShowSignUp(true)}>Sign up</button>
+          <div className='forms-footer'>
+            Don't have an account?
+            <button className='show-sign-up-form' onClick={() => setShowSignUp(true)}>Sign up</button>
+          </div>
         </div>}
       </div>
     </div>
