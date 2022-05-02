@@ -1,0 +1,62 @@
+body {
+  width: 100%;
+  height: 100%;
+  font-family: poppins, sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container-LEFT {
+
+}
+
+.forms-container-RIGHT {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 5px  black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.login-input::placeholder {
+  font-family: poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.home-vector-image {
+  width: 500px;
+}
+
+.insta-logo {
+  width: 60%
+}
