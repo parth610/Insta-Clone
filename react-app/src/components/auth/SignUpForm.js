@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { login, signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -18,13 +18,23 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      console.log('this is the isPrivate ------', isPrivate)
       const data = await dispatch(signUp(firstName, lastName, username, email, password, isPrivate));
       if (data) {
         setErrors(data)
       }
     }
   };
+
+  const handleDemo = async (e) => {
+    e.preventDefault()
+
+    const demo = {
+      email: 'demo@aa.io',
+      password: 'password'
+    }
+    return await dispatch(login(demo.email, demo.password))
+
+  }
 
   const updateFirstName = (e) => {
     setFirstName(e.target.value)
@@ -130,6 +140,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
+      <button type='button' onClick={handleDemo}>Demo</button>
     </form>
   );
 };
