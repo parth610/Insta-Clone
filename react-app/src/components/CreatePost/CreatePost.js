@@ -13,7 +13,7 @@ const CreatePost = () => {
         <div>
             <button type='button' onClick={showPostForm}>Create Post</button>
             {showForm &&
-            <CreatePostForm />
+                <CreatePostForm showPostForm={showPostForm} />
             }
         </div>
     )
