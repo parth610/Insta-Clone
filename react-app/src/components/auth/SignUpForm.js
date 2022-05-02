@@ -69,67 +69,61 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='login-form' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>First Name</label>
         <input
+          className='login-input'
+          placeholder='First Name'
           type='text'
           name='firstName'
           onChange={updateFirstName}
           value={firstName}
         ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
         <input
+          className='login-input'
+          placeholder='Last Name'
           type='text'
           name='lastName'
           onChange={updateLastName}
           value={lastName}
         ></input>
-      </div>
-      <div>
-        <label>Username</label>
         <input
+          className='login-input'
+          placeholder='Username'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
-      </div>
-      <div>
-        <label>Email</label>
         <input
+          className='login-input'
+          placeholder='Email'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
-      </div>
-      <div>
-        <label>Password</label>
         <input
+          className='login-input'
+          placeholder='Password'
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
         <input
+          className='login-input'
+          placeholder='Confirm Password'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
         ></input>
-      </div>
       <div>
         <label>Private</label>
         <input

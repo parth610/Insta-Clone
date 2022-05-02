@@ -1,3 +1,8 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -13,10 +18,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
-.image-container-LEFT {
 
+.center-line {
+  width: 1px;
+  background-color: black;
+  height: 50%;
+  margin: 50px;
 }
 
 .forms-container-RIGHT {
@@ -44,7 +54,7 @@ body {
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,.2);
   margin: 10px;
-  padding: 5px;
+  padding: 10px 20px;
   font-size: 16px;
   font-weight: 300;
   background-color: rgba(86,147,219,0.1)
@@ -54,7 +64,7 @@ body {
   font-family: poppins, sans-serif;
   font-size: 16px;
   font-weight: 200;
-  padding: 10px;
+  padding: 0px;
 }
 
 .login-button {
@@ -69,7 +79,21 @@ body {
   font-size: 18px;
 }
 
+.login-button:hover {
+  background-color: #5693db;
+  cursor: pointer;
+}
+
 .login-form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -90,9 +114,15 @@ body {
   font-size: 18px;
 }
 
+.demo-button:hover {
+  background-color: #5693db;
+  cursor: pointer;
+}
+
 .forms-footer {
   display: flex;
   flex-direction: column;
+  margin: 20px 0 0;
 }
 
 .home-vector-image {
@@ -102,4 +132,17 @@ body {
 .insta-logo {
   width: 60%;
   margin: 20px 0px;
+}
+
+.show-form-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-family: poppins, sans-serif;
+  font-size: 18px;
+  color: #f4b545;
+}
+
+.show-form-button:hover {
+  cursor: pointer;
+  color: #5693db;
 }
