@@ -1,0 +1,105 @@
+body {
+  width: 100%;
+  height: 100%;
+  font-family: poppins, sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container-LEFT {
+
+}
+
+.forms-container-RIGHT {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 5px  rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 40px 10px;
+  width: 350px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+.login-input {
+  font-family: poppins, sans-serif;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,.2);
+  margin: 10px;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: rgba(86,147,219,0.1)
+}
+
+.login-input::placeholder {
+  font-family: poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 10px;
+}
+
+.login-button {
+  font-family: poppins, sans-serif;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px 0px 5px;
+  border: none;
+  background-color: #f4b545;
+  color: white;
+  font-size: 18px;
+}
+
+.login-form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo-button {
+  font-family: poppins, sans-serif;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px 0px 5px;
+  border: none;
+  background-color: #f4b545;
+  color: white;
+  font-size: 18px;
+}
+
+.forms-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-vector-image {
+  width: 500px;
+}
+
+.insta-logo {
+  width: 60%;
+  margin: 20px 0px;
+}
