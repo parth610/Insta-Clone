@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import CreatePost from './CreatePost/CreatePost';
 
 const NavBar = () => {
   return (
@@ -25,6 +26,9 @@ const NavBar = () => {
         <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
+          </NavLink>
+          <NavLink to='/posts/new' exact={true} activeClassName='active'>
+            <CreatePost />
           </NavLink>
         </li>
         <li>
