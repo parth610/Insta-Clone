@@ -22,8 +22,8 @@ class User(db.Model, UserMixin):
     comments = db.relationship('Comment', back_populates='user')
     posts = db.relationship('Post', back_populates='user')
     postlikes = db.relationship('PostLike', back_populates='user')
-    user_1_follower = db.relationship('Follow', foreign_keys=[Follow.follower_id], back_populates='follower')
-    user_2_followee = db.relationship('Follow', foreign_keys=[Follow.followee_id], back_populates='followee')
+    following = db.relationship('Follow', foreign_keys=[Follow.follower_id], back_populates='follower')
+    followers = db.relationship('Follow', foreign_keys=[Follow.followee_id], back_populates='followee')
 
 
 
@@ -49,5 +49,5 @@ class User(db.Model, UserMixin):
             'profile_pic': self.profile_pic,
             'owner': self.owner,
             'linkedin': self.linkedin,
-            'github': self.github, 
+            'github': self.github,
         }
