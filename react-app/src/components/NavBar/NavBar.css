@@ -7,13 +7,14 @@
   display: flex;
   position: fixed;
   top: 0;
-  height: 80px;
+  height: 75px;
   background: rgb(255, 246, 221);
   /* background: rgb(255, 255, 201); */
   border-bottom: solid lightgrey;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  z-index: 1;
 }
 
 .navBar__left,

@@ -1,35 +1,68 @@
+.loadPosts {
+  width: 100%;
+  margin-top: 80px;
+}
+
 .loadPost__image {
   height: 30%;
-  width: 80%;
-  border-radius: 10px 10px 0px 0px;
-}
-
-.loadPosts__postCard {
-
+  width: 100%;
+  border-radius: 4px 4px 0px 0px;
 
 }
 
-.loadPost__imageContainer {
+.loadPost__postCard {
+  width: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.loadPost_opaque_container {
+  margin: 0px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px ;
-  border: solid  #5693db;
-  padding: 5%;
 }
 
-.loadPost__allContents {
-    
+.loadPost__imageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px ;
+  margin: 5%;
+  border: solid #5693db;
 }
+
 .loadPost__contents {
+  /* border: solid #5693db; */
   position: relative;
   bottom: 0;
   width: 80%;
 }
 
 .loadPost__captionBlock {
+
+  position: relative;
+  height: 0px;
+  bottom: 25px;
+  width: 100%;
   color: white;
   background-color: black;
+}
+
+.caption_text {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2px 5px;
+  background-color: rgba(0, 0, 0, 0.511);
+}
+
+.loadPost__contents {
+  width: 100%;
 }
 
 .loadPost__lowerLikes {
