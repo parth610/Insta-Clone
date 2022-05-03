@@ -127,14 +127,16 @@ const SignUpForm = () => {
           required={true}
         ></input>
       <div>
-        <label>Private</label>
+        <label for='private-box'>Private
         <input
           className='private-checkbox'
           type="checkbox"
           name="private"
+          id='private-box'
           checked={isPrivate}
           onChange={updateIsPrivate}
-        ></input>
+          ></input>
+          </label>
       </div>
       <button className='demo-button' type='submit'>Sign Up</button>
       <button className='demo-button' type='button' onClick={handleDemo}>Demo</button>
