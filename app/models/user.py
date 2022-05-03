@@ -15,6 +15,9 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(30), nullable=False)
     private = db.Column(db.Boolean, nullable=False)
     profile_pic = db.Column(db.String(5000))
+    owner = db.Column(db.Boolean, nullable=False)
+    github = db.Column(db.String(5000))
+    linkedin = db.Column(db.String(5000))
 
     comments = db.relationship('Comment', back_populates='user')
     posts = db.relationship('Post', back_populates='user')
@@ -43,5 +46,8 @@ class User(db.Model, UserMixin):
             'first_name': self.first_name,
             'last_name': self.last_name,
             'private': self.private,
-            'profile_pic': self.profile_pic
+            'profile_pic': self.profile_pic,
+            'owner': self.owner,
+            'linkedin': self.linkedin,
+            'github': self.github, 
         }

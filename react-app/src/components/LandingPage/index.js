@@ -8,6 +8,7 @@ import './LandingPage.css'
 const LandingPage = () => {
   const [showSignUp, setShowSignUp] = useState(false);
 
+
   return (
     <div className='landing-page-container'>
       <div className='image-container-LEFT'>
