@@ -39,8 +39,6 @@ const Home = () => {
             <div className="home__right">
                 <div className="home__suggestions">
                     <p>Suggestions For You</p>
-                    {users.map(developer => (
-                        <div key={developer.id} className="home__developers">
                             <div className="home__developerLabel">
                                 <div className="home__avatar">
                                     {developer?.profile_pic ?
@@ -59,6 +57,11 @@ const Home = () => {
                                         }
                                         {developer?.linkedin &&
                                             <li><a target='_blank' href={developer?.linkedin}><i className="fa-brands fa-linkedin"></i></a></li>
+                                        {developers?.github &&
+                                            <li><a target='_blank' href={developers?.github}><i className="fa-brands fa-github"></i></a></li>
+                                        }
+                                        {developers?.linkedin &&
+                                            <li><a target='_blank' href={developers?.linkedin}><i className="fa-brands fa-linkedin"></i></a></li>
                                         }
                                     </ul>
                                 </div>
