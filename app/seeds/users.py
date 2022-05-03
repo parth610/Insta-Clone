@@ -10,6 +10,7 @@ def seed_users():
         first_name='Demo',
         last_name='Lition',
         private=False,
+        owner=False,
         profile_pic=None
         )
     marnie = User(
@@ -19,7 +20,9 @@ def seed_users():
         first_name='Marnie',
         last_name='Lition',
         private=False,
-        profile_pic=None
+        owner=False,
+        profile_pic=None,
+
         )
     bobbie = User(
         username='bobbie',
@@ -28,12 +31,65 @@ def seed_users():
         first_name='Bobbie',
         last_name='Builder',
         private=False,
+        owner=False,
         profile_pic=None
+        )
+    gabe = User(
+        username='gabe',
+        email='gabe@aa.io',
+        password='password',
+        first_name='Gabriel',
+        last_name='Sitorus',
+        private=False,
+        owner= True,
+        profile_pic='https://media-exp1.licdn.com/dms/image/D5603AQHYi5RD9DFdKA/profile-displayphoto-shrink_400_400/0/1647206013202?e=1657152000&v=beta&t=GwrG2HnQMhppGvJxjrGxzY8WbCDLBTCVHM6bQR1TJ2k',
+        github='https://github.com/GabeS97',
+        linkedin='https://www.linkedin.com/in/gabriel-sitorus/',
+        )
+    jacob = User(
+        username='jacob',
+        email='jacob@aa.io',
+        password='password',
+        first_name='Jacob',
+        last_name='Chamberlain',
+        private=False,
+        owner= True,
+        profile_pic=None,
+        github='https://github.com/JacobDChamberlain',
+        linkedin=None
+        )
+    mason = User(
+        username='mason',
+        email='mason@aa.io',
+        password='password',
+        first_name='Mason',
+        last_name='Taylor ',
+        private=False,
+        owner= True,
+        profile_pic='https://ca.slack-edge.com/T03GU501J-U02B6NB0LJK-0833227ecc59-512',
+        github='https://github.com/masontaylor7',
+        linkedin='https://www.linkedin.com/in/mason-taylor-5a2139211/'
+        )
+    parth = User(
+        username='parth',
+        email='parth@aa.io',
+        password='password',
+        first_name='Parth',
+        last_name='Bhakta ',
+        private=False,
+        owner= True,
+        profile_pic='https://ca.slack-edge.com/T03GU501J-U02DVPCFSDC-2f42b255bc03-512',
+        github='https://github.com/masontaylor7',
+        linkedin='https://www.linkedin.com/in/parth-bhakta-a7883998/'
         )
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(gabe)
+    db.session.add(jacob)
+    db.session.add(mason)
+    db.session.add(parth)
 
     db.session.commit()
 

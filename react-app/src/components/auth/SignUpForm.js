@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { login, signUp } from '../../store/session';
 
 const SignUpForm = () => {
@@ -14,6 +15,7 @@ const SignUpForm = () => {
   const [isPrivate, setIsPrivate] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -32,8 +34,8 @@ const SignUpForm = () => {
       email: 'demo@aa.io',
       password: 'password'
     }
-    return await dispatch(login(demo.email, demo.password))
-
+    await dispatch(login(demo.email, demo.password))
+    history.push('/home')
   }
 
   const updateFirstName = (e) => {
