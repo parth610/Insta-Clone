@@ -1,0 +1,12 @@
+.navBarLogo__left {
+    /* border: solid black; */
+    display: flex;
+}
+
+.navBarLogo__left > img {
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15em;
+}

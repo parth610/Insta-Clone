@@ -11,6 +11,11 @@ def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
+@user_routes.route('/owner')
+@login_required
+def owner_devs():
+    users = User.query.filter(User.owner == True).all()
+    return {'users': [user.to_dict() for user in users]}
 
 @user_routes.route('/<int:id>')
 @login_required
