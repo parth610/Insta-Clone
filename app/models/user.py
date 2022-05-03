@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(30), nullable=False)
     private = db.Column(db.Boolean, nullable=False)
     profile_pic = db.Column(db.String(5000))
-    owner = db.Column(db.Boolean, nullable=False)
+    owner = db.Column(db.Boolean, nullable=True)
     github = db.Column(db.String(5000))
     linkedin = db.Column(db.String(5000))
 
