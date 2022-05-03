@@ -10,15 +10,29 @@ def get_likes(id):
     return jsonify([like.to_dict() for like in likes])
 
 @likes_routes.route('/posts/<int:id>', methods=['POST'])
-def create_like(id):
-    # user_id = current_user
-    # print(user_id,"!!!!!!!!!!!!!!!")
-    # post_id = id
-    # like = PostLike(
-    #     user_id,
-    #     post_id
-    # )
-    # db.session.add(like)
-    # db.session.commit()
-    # return like.to_dict()
-    pass
+def update_like(id):
+
+    queried_like = PostLike.query.filter((PostLike.post_id == id) and (PostLike.user_id == current_user.id)).first()
+
+    if queried_like:
+        db.session.delete(queried_like)
+        db.session.commit()
+        return queried_like.to_dict()
+    else:
+        like = PostLike(
+            user_id = current_user.id,
+            post_id = id
+        )
+        db.session.add(like)
+        db.session.commit()
+        return like.to_dict()
+
+
+
+# @likes_routes.route('/posts/<int:id>', methods=['DELETE'])
+# def delete_like(id):
+
+#     dislike = PostLike.query.filter((PostLike.post_id == id) and (PostLike.user_id == current_user.id)).first()
+
+#     db.session.delete(dislike)
+#     db.session.commit()
