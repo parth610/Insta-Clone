@@ -11,7 +11,7 @@ follow_routes = Blueprint('follows', __name__)
 def follow_user(followee_req_id):
     curr_user = User.query.filter(User.id == current_user.id).first()
     followee_user = User.query.filter(User.id == followee_req_id).first()
-    print(curr_user.following, '-----------------')
+    print(curr_user.following, '---------------------')
     curr_user_following_list = curr_user.following
     follow = Follow.query.filter
     # follow = Follow(
