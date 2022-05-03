@@ -69,14 +69,15 @@ body {
 
 .login-button {
   font-family: poppins, sans-serif;
-  width: 100%;
-  padding: 5px 10px;
+  width: 110%;
+  padding: 5px 20px;
   border-radius: 5px;
   margin: 10px 0px 5px;
   border: none;
   background-color: #f4b545;
   color: white;
   font-size: 18px;
+  height: 50px;
 }
 
 .login-button:hover {
@@ -104,7 +105,7 @@ body {
 
 .demo-button {
   font-family: poppins, sans-serif;
-  width: 100%;
+  width: 110%;
   padding: 5px 10px;
   border-radius: 5px;
   margin: 10px 0px 5px;
@@ -112,6 +113,7 @@ body {
   background-color: #f4b545;
   color: white;
   font-size: 18px;
+  height: 50px;
 }
 
 .demo-button:hover {
@@ -145,4 +147,8 @@ body {
 .show-form-button:hover {
   cursor: pointer;
   color: #5693db;
+}
+
+.private-checkbox {
+  
 }
