@@ -4,7 +4,7 @@ const NavBarMid = () => {
     return (
         <div>
             <div className="navBar__searchBar">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                 <input
                     className='search-icon'
                     placeholder='Search'
