@@ -27,7 +27,7 @@ const Home = () => {
                 <div className="home__suggestions">
                     <p>Suggestions For You</p>
                     {users.map(developers => (
-                        <div className="home__developers">
+                        <div key={developers?.first_name} className="home__developers">
                             <div className="home__developerLabel">
                                 <div className="home__avatar">
                                     {developers?.profile_pic ?
@@ -42,10 +42,10 @@ const Home = () => {
                                 <div className="developers__contacts">
                                     <ul className='developers__links'>
                                         {developers?.github &&
-                                            <li><a target='_blank' href={developers?.github}><i class="fa-brands fa-github"></i></a></li>
+                                            <li><a target='_blank' href={developers?.github}><i className="fa-brands fa-github"></i></a></li>
                                         }
                                         {developers?.linkedin &&
-                                            <li><a target='_blank' href={developers?.linkedin}><i class="fa-brands fa-linkedin"></i></a></li>
+                                            <li><a target='_blank' href={developers?.linkedin}><i className="fa-brands fa-linkedin"></i></a></li>
                                         }
                                     </ul>
                                 </div>
