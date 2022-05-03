@@ -12,7 +12,8 @@ const NavBarRight = () => {
                 <NavLink className='navBar__messages' to='/message' activeStyle={{ color: 'rgb(253, 176, 82)' }}>
                     <i className="fa-solid fa-comment-dots fa-lg"></i>
                 </NavLink>
-                    <i className="fa-solid fa-square-plus fa-lg"></i>
+                <NavLink className='navBar__upload' to='/message'>
+                    <i className="fa-solid fa-square-plus fa-lg" ></i>
                 </NavLink>
 
                 <NavLink className='navBar__explore' to='/explore' activeStyle={{ color: ' rgb(253, 176, 82)' }}>
