@@ -14,11 +14,11 @@ def follow_user(followee_req_id):
     print(curr_user.following, '---------------------')
     curr_user_following_list = curr_user.following
     follow = Follow.query.filter
-    # follow = Follow(
-    #     follower_id=curr_user.id,
-    #     followee_id=followee_user.id
-    # )
-    # db.session.add(follow)
-    # db.session.commit()
-    # print(curr_user.to_dict(), 'followee-id----------', followee_user)
+    follow = Follow(
+        follower_id=curr_user.id,
+        followee_id=followee_user.id
+    )
+    db.session.add(follow)
+    db.session.commit()
+    print(curr_user.to_dict(), 'followee-id----------', followee_user)
     return {'test': 'yes'}
