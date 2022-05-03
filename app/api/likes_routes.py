@@ -11,12 +11,14 @@ def get_likes(id):
 
 @likes_routes.route('/posts/<int:id>', methods=['POST'])
 def create_like(id):
-    user_id = current_user.id
-    post_id = id
-    like = PostLike(
-        user_id,
-        post_id
-    )
-    db.session.add(like)
-    db.session.commit()
-    return like.to_dict()
+    # user_id = current_user
+    # print(user_id,"!!!!!!!!!!!!!!!")
+    # post_id = id
+    # like = PostLike(
+    #     user_id,
+    #     post_id
+    # )
+    # db.session.add(like)
+    # db.session.commit()
+    # return like.to_dict()
+    pass
