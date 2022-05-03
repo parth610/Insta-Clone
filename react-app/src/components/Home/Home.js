@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { allPosts } from '../../store/posts'
 import LogoutButton from '../auth/LogoutButton'
+import LoadPosts from '../LoadPosts/LoadPosts'
 import './Home.css'
 const Home = () => {
     const [users, setUsers] = useState([])
+    const dispatch = useDispatch()
+    const posts = Object.values(useSelector(state => state.posts))
+
+    useEffect(() => {
+        dispatch(allPosts())
+    }, [dispatch])
+
+
+    console.log(posts);
 
     useEffect(() => {
         async function allUsers() {
@@ -21,26 +33,30 @@ const Home = () => {
             </div>
 
             <div className='home__middle'>
+                    <LoadPosts posts={posts} />
             </div>
 
             <div className="home__right">
                 <div className="home__suggestions">
                     <p>Suggestions For You</p>
-                    {users.map(developers => (
-                        <div key={developers?.first_name} className="home__developers">
                             <div className="home__developerLabel">
                                 <div className="home__avatar">
-                                    {developers?.profile_pic ?
-                                        <img className='home__displayPic' src={developers?.profile_pic} alt='' /> :
-                                        <div className='home__default'>{developers?.first_name[0]}</div>
+                                    {developer?.profile_pic ?
+                                        <img className='home__displayPic' src={developer?.profile_pic} alt='' /> :
+                                        <div className='home__default'>{developer?.first_name[0]}</div>
 
                                     }
                                 </div>
                                 <div className="developers__info">
-                                    {developers?.first_name} {developers?.last_name}
+                                    {developer?.first_name} {developer?.last_name}
                                 </div>
                                 <div className="developers__contacts">
                                     <ul className='developers__links'>
+                                        {developer?.github &&
+                                            <li><a target='_blank' href={developer?.github}><i className="fa-brands fa-github"></i></a></li>
+                                        }
+                                        {developer?.linkedin &&
+                                            <li><a target='_blank' href={developer?.linkedin}><i className="fa-brands fa-linkedin"></i></a></li>
                                         {developers?.github &&
                                             <li><a target='_blank' href={developers?.github}><i className="fa-brands fa-github"></i></a></li>
                                         }

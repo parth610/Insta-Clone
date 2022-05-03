@@ -5,7 +5,9 @@
 .navBar {
   width: 100vw;
   display: flex;
-  height: 80%;
+  position: fixed;
+  top: 0;
+  height: 80px;
   background: rgb(255, 246, 221);
   /* background: rgb(255, 255, 201); */
   border-bottom: solid lightgrey;
@@ -84,7 +86,7 @@
 }
 
 
-.navBar__right div {
+.navBar__right > div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;

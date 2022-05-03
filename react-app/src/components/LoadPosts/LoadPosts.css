@@ -1,0 +1,39 @@
+.loadPost__image {
+  height: 30%;
+  width: 80%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.loadPosts__postCard {
+
+
+}
+
+.loadPost__imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px ;
+  border: solid  #5693db;
+  padding: 5%;
+}
+
+.loadPost__allContents {
+    
+}
+.loadPost__contents {
+  position: relative;
+  bottom: 0;
+  width: 80%;
+}
+
+.loadPost__captionBlock {
+  color: white;
+  background-color: black;
+}
+
+.loadPost__lowerLikes {
+  background-color: #f3eded;
+  border-radius: 0px 0px 10px 10px;
+  border-top: #5693db solid 10px;
+}
