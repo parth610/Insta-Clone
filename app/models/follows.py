@@ -7,8 +7,8 @@ class Follow(db.Model):
     follower_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     followee_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    follower = db.relationship('User', foreign_keys=[follower_id], back_populates='user_1_follower')
-    followee = db.relationship('User', foreign_keys=[followee_id], back_populates='user_2_followee')
+    follower = db.relationship('User', foreign_keys=[follower_id], back_populates='followers')
+    followee = db.relationship('User', foreign_keys=[followee_id], back_populates='following')
 
     def to_dict(self):
         return {
