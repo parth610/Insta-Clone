@@ -12,11 +12,11 @@ const LandingPage = () => {
   return (
     <div className='landing-page-container'>
       <div className='image-container-LEFT'>
-        <img className='home-vector-image' src={homeVectorImage}></img>
+        <img alt='flixta-home-vector-img' className='home-vector-image' src={homeVectorImage}></img>
       </div>
       <div className='center-line'></div>
       <div className='forms-container-RIGHT'>
-        <img className='insta-logo' src={instaLogo}></img>
+        <img alt='flixta-logo' className='insta-logo' src={instaLogo}></img>
         {showSignUp ?
         <div className='signup-form-container'>
           <SignUpForm />

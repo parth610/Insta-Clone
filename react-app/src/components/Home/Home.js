@@ -53,10 +53,10 @@ const Home = () => {
                             <div className="developers__contacts">
                                 <ul className='developers__links'>
                                     {developer?.github &&
-                                        <li><a target='_blank' href={developer?.github}><i className="fa-brands fa-github"></i></a></li>
+                                        <li><a target='_blank' rel="noreferrer" href={developer?.github}><i className="fa-brands fa-github"></i></a></li>
                                     }
                                     {developer?.linkedin &&
-                                        <li><a target='_blank' href={developer?.linkedin}><i className="fa-brands fa-linkedin"></i></a></li>
+                                        <li><a target='_blank' rel="noreferrer" href={developer?.linkedin}><i className="fa-brands fa-linkedin"></i></a></li>
                                     }
                                 </ul>
                             </div>
