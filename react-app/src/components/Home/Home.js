@@ -14,9 +14,6 @@ const Home = () => {
     }, [dispatch])
 
 
-    console.log("thes are the users--------------", users);
-
-
     useEffect(() => {
         async function allUsers() {
             const response = await fetch('/api/users/owner');
@@ -32,7 +29,9 @@ const Home = () => {
                 <LogoutButton />
             </div>
             <div className='home__middle'>
-                <LoadPosts posts={posts} />
+                <LoadPosts
+                    // posts={posts}
+                />
             </div>
             <div className="home__right">
                 <div className="home__suggestions">

@@ -24,7 +24,7 @@ export const createNewPost = (post) => async (dispatch) => {
         const newPost = await response.json()
         // console.log('this is the new post--------------------', newPost)
         dispatch(createPostActionCreator(newPost))
-        return response;
+        return newPost;
     }
 }
 
@@ -49,6 +49,7 @@ export default function postReducer(state = initialState, action) {
             action.posts.map(post => {
                 return newState[post.id] = post
             })
+            console.log(newState)
             return newState;
         }
         case CREATE_POST: {
