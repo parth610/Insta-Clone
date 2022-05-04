@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import postReducer from './posts';
 import likeReducer from './likes';
 import session from './session';
+import UserProfileReducer from './userProfile';
 
 const rootReducer = combineReducers({
   posts: postReducer,
   likes: likeReducer,
   session,
+  UserProfileReducer
 });
 
 
