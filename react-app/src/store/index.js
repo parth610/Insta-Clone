@@ -4,12 +4,16 @@ import postReducer from './posts';
 import likeReducer from './likes';
 import session from './session';
 import UserProfileReducer from './userProfile';
+import followsReducer from './follows';
+import followingReducer from './following';
 
 const rootReducer = combineReducers({
   posts: postReducer,
   likes: likeReducer,
   session,
-  UserProfileReducer
+  UserProfileReducer,
+  followsReducer,
+  followingReducer
 });
 
 

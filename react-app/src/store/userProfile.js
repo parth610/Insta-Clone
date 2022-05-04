@@ -1,5 +1,6 @@
 const GET_USER_PROFILE = 'user/userprofile'
 
+
 const getUserProfile = (user) => ({
     type: GET_USER_PROFILE,
     user
@@ -19,7 +20,8 @@ const initialState = {}
 export default function UserProfileReducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_PROFILE:
-            const newState = {...state}
+
+            const newState = {}
             newState[action.user.id] = action.user
             return newState
 
