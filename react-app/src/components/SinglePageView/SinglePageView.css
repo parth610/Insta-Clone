@@ -1,0 +1,5 @@
+.singlePageView {
+    position: absolute;
+    z-index: 2;
+    background-color: rbga(255,255,255,0.8);
+}
