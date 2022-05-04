@@ -1,21 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { specificLikes } from '../../store/likes';
+import { getAllLikes, updateLike } from '../../store/likes';
+import { allPosts } from '../../store/posts';
 import './LoadPosts.css'
 
-const LoadPosts = ({ posts }) => {
+const LoadPosts = () => {
     const likes = Object.values(useSelector(state => state.likes))
+    const posts = Object.values(useSelector(state => state.posts))
 
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
-        dispatch(specificLikes(1))
+        dispatch(getAllLikes())
     }, [dispatch])
 
-    // const postsLikesCount = async (post_id) => {
-    //     const likes = await dispatch(specificLikes(post_id))
-    //     return likes
-    // }
+    useEffect(() => {
+        dispatch(allPosts())
+    }, [dispatch])
+
+
+    const likesFilter = (post_id) => {
+        let postLikes = likes.filter(like => like.post_id === post_id)
+        return postLikes.length
+    }
+
+    const likeUpdate = async (e) => {
+        e.preventDefault()
+        const postId = +e.target.id
+        console.log('-----------------------', postId)
+        await dispatch(updateLike(postId))
+    }
 
     return (
         <div className='loadPosts'>
@@ -31,8 +45,8 @@ const LoadPosts = ({ posts }) => {
                         </div>
                         <div className="loadPost__contents">
                             <div className="loadPost__lowerLikes">
-                                <i className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i>
-                                <div>{likes.length}</div>
+                                <button type='button' id={post.id} onClick={likeUpdate}><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
+                                <div>{likesFilter(post.id)}</div>
                             </div>
                         </div>
                     </div>

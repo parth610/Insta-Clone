@@ -4,6 +4,11 @@ from app.models import PostLike, User, db
 
 likes_routes = Blueprint('post_likes', __name__)
 
+@likes_routes.route('/all')
+def get_all_likes():
+    likes = PostLike.query.all()
+    return jsonify([like.to_dict() for like in likes])
+
 @likes_routes.route('/posts/<int:id>')
 def get_likes(id):
     likes = PostLike.query.filter(PostLike.post_id == id)
