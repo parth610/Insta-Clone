@@ -11,8 +11,8 @@ import './LoadPosts.css'
 const LoadPosts = () => {
     const likes = Object.values(useSelector(state => state.likes))
     const posts = Object.values(useSelector(state => state.posts))
-    const [showModal, setShowModal] = useState(true)
-    const [num, setNum] = useState(0)
+    const [showPage, setShowPage] = useState(false)
+    const [select, setSelect] = useState({})
 
     const dispatch = useDispatch();
 
@@ -37,47 +37,49 @@ const LoadPosts = () => {
     }
 
     // const savePostId = async (e) => {
-        // e.preventDefault()
-        // const postId = +e.currentTarget.id
-        // // let post = await dispatch(getPost(postId))
-        // return postId
+    // e.preventDefault()
+    // const postId = +e.currentTarget.id
+    // // let post = await dispatch(getPost(postId))
+    // return postId
     // }
 
+    const newNum = (e) => {
+        e.preventDefault()
+        let post_id = +e.currentTarget.id
+        const postSelect = posts.find(post => post.id === post_id)
+        setSelect(postSelect)
+        setShowPage(true)
+    }
 
     return (
         <div className='loadPosts'>
-            {posts.map(post => (
-                <div key={post.id} className="loadPost__postCard">
-                    <div className="loadPost__imageContainer">
-                        <div className='loadPost_opaque_container' id={post.id}>
-                            <NavLink type='button' onClick={() => setNum(post.id)} id={post.id} to={`/home/posts/${post.id}`}>
-                                <img className='loadPost__image' src={post.image_url} alt={post.caption} />
-                            </NavLink>
-                            <div className="loadPost__captionBlock">
-                                <div className='caption_text'>{post.caption}</div>
+            {showPage && <div className="test__conatainer" onClick={() => setShowPage(false)}><SinglePageView select={select} /></div>}
+            {
+                posts.map(post => (
+                    <div key={post.id} className="loadPost__postCard">
+                        <div className="loadPost__imageContainer" id={post.id} onClick={newNum}>
+                            <div className='loadPost_opaque_container' id={post.id}>
+                                <div id={post.id}>
+                                    <img className='loadPost__image' src={post.image_url} alt={post.caption} />
+                                </div>
+                                <div className="loadPost__captionBlock">
+                                    <div className='caption_text'>{post.caption}</div>
+                                </div>
                             </div>
-                            {showModal && (
-                                <Route path='/home/posts/:postId'>
-                                    {showModal ? console.log(post.id, '<<<<<<<<<<<<<<<<<') : null}
-                                    <PostModal onClose={() => setShowModal(false)} >
-                                        <SinglePageView num={num} />
-                                    </PostModal>
-                                </Route>
-                            )}
-                        </div>
-                        <div className="loadPost__contents">
-                            <div className="loadPost__lowerLikes">
-                                <button type='button' id={post.id} onClick={likeUpdate}><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
-                                <div>{likesFilter(post.id)}</div>
+                            <div className="loadPost__contents">
+                                <div className="loadPost__lowerLikes">
+                                    <button type='button' id={post.id} onClick={likeUpdate}><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
+                                    <div>{likesFilter(post.id)}</div>
+                                </div>
                             </div>
                         </div>
+
+
                     </div>
+                ))
+            }
 
-
-                </div>
-            ))}
-
-        </div>
+        </div >
     )
 }
 
