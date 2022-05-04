@@ -7,8 +7,7 @@ const LoadPosts = ({ posts }) => {
     const likes = Object.values(useSelector(state => state.likes))
 
     const dispatch = useDispatch();
-    console.log(likes)
-
+    
     useEffect(() => {
         dispatch(specificLikes(1))
     }, [dispatch])
@@ -32,7 +31,7 @@ const LoadPosts = ({ posts }) => {
                         </div>
                         <div className="loadPost__contents">
                             <div className="loadPost__lowerLikes">
-                                <i className="fa-solid fa-heart fa-lg" ></i>
+                                <i className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i>
                                 <div>{likes.length}</div>
                             </div>
                         </div>

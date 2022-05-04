@@ -1,12 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import instaLogo from '../../../images/instagram_logo.png'
 import './NavBarLeft.css'
 const NavBarLeft = () => {
     return (
         <div>
-            <div className='navBarLogo__left'>
+            <NavLink className='navBarLogo__left' to='/home'>
                 <img src={instaLogo} alt='' />
-            </div>
+            </NavLink>
         </div>
     )
 }

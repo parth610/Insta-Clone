@@ -66,7 +66,16 @@
 }
 
 .loadPost__lowerLikes {
+  display: flex;
   background-color: #f3eded;
   border-radius: 0px 0px 10px 10px;
   border-top: #5693db solid 10px;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: .5em;
+  padding-left: 1em;
+}
+
+.loadPost__heartCount {
+  color: rgb(246, 173, 71) ;
 }

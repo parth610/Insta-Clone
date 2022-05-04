@@ -36,7 +36,7 @@ function App() {
           <SignUpForm />
         </Route> */}
         {user ?
-          <Route path='/home' exact={true}>
+          <Route path='/home'>
             <Home />
           </Route> :
           <Route path='/' exact={true} >
