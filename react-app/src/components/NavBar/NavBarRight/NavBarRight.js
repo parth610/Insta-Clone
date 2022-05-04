@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Route } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Modal } from '../../../context/Modal'
@@ -7,6 +8,8 @@ import CreatePostModal from '../../CreatePost/CreatePostModal'
 
 const NavBarRight = () => {
     const [showModal, setShowModal] = useState(false)
+    // const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user)
 
     const showPostForm = () => {
         setShowModal(false)
@@ -38,8 +41,9 @@ const NavBarRight = () => {
                     <i className="fa-solid fa-compass fa-lg"></i>
                 </NavLink>
 
-                <NavLink className='navBar__notifications' to='/notifications'>
-                    <i className="fa-solid fa-heart fa-lg"></i>
+                <NavLink className='navBar__notifications' to={`/users/${user.id}`}>
+                    {/* <i className="fa-solid fa-heart fa-lg"></i> */}
+                    <i className="fa-duotone fa-user fa"></i>
                 </NavLink>
             </div>
         </div >

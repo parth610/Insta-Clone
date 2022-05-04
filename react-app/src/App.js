@@ -8,6 +8,7 @@ import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
+import UserProfileComponent from './components/UserProfile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,9 +47,12 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <ProtectedRoute path='/users/:userId'>
+          <UserProfileComponent  user={user} />
         </ProtectedRoute>
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
+          <User />
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );
