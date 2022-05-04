@@ -8,7 +8,7 @@
   position: fixed;
   top: 0;
   height: 75px;
-  background: rgb(255, 246, 221);
+  background-color: rgb(249, 240, 214);
   /* background: rgb(255, 255, 201); */
   border-bottom: solid lightgrey;
   flex-direction: row;
@@ -62,13 +62,13 @@
   outline: none;
   cursor: text;
   border-radius: 10px;
-  background-color: #f3eded;
+  background-color: rgb(237, 242, 250);
   border: none;
   text-indent: 1em;
 }
 
 .navBar__searchBar i {
-  color: lightgrey;
+  color: rgb(194, 198, 205);
   position: relative;
 }
 
