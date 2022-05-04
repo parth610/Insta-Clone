@@ -42,7 +42,7 @@ def follow_user(followee_req_id):
 @follow_routes.route('/followers/<int:user_id>')
 @login_required
 def get_followers(user_id):
-    curr_user = User.query.filter(User.id == current_user.id).first()
+    curr_user = User.query.filter(User.id == user_id).first()
 
     curr_user_followers_list = curr_user.followers
 
@@ -51,7 +51,7 @@ def get_followers(user_id):
 @follow_routes.route('/following/<int:user_id>')
 @login_required
 def get_following(user_id):
-    curr_user = User.query.filter(User.id == current_user.id).first()
+    curr_user = User.query.filter(User.id == user_id).first()
 
     curr_user_following_list = curr_user.following
 
