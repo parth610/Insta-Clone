@@ -1,5 +1,11 @@
 const ALL_POSTS = 'posts/ALL_POSTS'
+const GET_POST = 'posts/GET_POST'
 const CREATE_POST = 'posts/CREATE_POST';
+
+const getPostActionCreator = (post) => ({
+    type: GET_POST,
+    post
+})
 
 const allPostsActionCreator = (posts) => ({
     type: ALL_POSTS,
@@ -12,7 +18,6 @@ const createPostActionCreator = (post) => ({
 })
 
 export const createNewPost = (post) => async (dispatch) => {
-    // console.log(post)
     const response = await fetch('/api/posts/', {
         method: 'POST',
         headers: {
@@ -22,14 +27,13 @@ export const createNewPost = (post) => async (dispatch) => {
     })
     if (response.ok) {
         const newPost = await response.json()
-        // console.log('this is the new post--------------------', newPost)
         dispatch(createPostActionCreator(newPost))
         return newPost;
     }
 }
 
 export const allPosts = () => async (dispatch) => {
-    const response = await fetch('/api/posts', {
+    const response = await fetch('/api/posts/', {
         method: 'GET'
     })
     if (response.ok) {
@@ -39,17 +43,31 @@ export const allPosts = () => async (dispatch) => {
     }
 }
 
+export const getPost = (post_id) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${post_id}`)
+
+    if (response.ok) {
+        const post = await response.json()
+        dispatch(getPostActionCreator(post))
+        return post
+    }
+}
+
 
 let initialState = {}
 export default function postReducer(state = initialState, action) {
     let newState
     switch (action.type) {
+        case GET_POST: {
+            newState = { }
+            newState[action.post.id] = action.post
+            return newState
+        }
         case ALL_POSTS: {
             newState = { ...state }
             action.posts.map(post => {
                 return newState[post.id] = post
             })
-            console.log(newState)
             return newState;
         }
         case CREATE_POST: {

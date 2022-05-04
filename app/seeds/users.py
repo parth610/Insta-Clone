@@ -54,7 +54,7 @@ def seed_users():
         last_name='Chamberlain',
         private=False,
         owner= True,
-        profile_pic=None,
+        profile_pic='https://ca.slack-edge.com/T03GU501J-U02E85EDGQ6-17a226029199-512',
         github='https://github.com/JacobDChamberlain',
         linkedin=None
         )

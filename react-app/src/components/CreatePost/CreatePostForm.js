@@ -21,7 +21,6 @@ const CreatePostForm = ({ showPostForm }) => {
             caption,
             user_id: sessionUser.id
         };
-        // console.log('posted new post -------------', post)
         dispatch(createNewPost(post))
         showPostForm();
     }
