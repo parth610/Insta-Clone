@@ -14,29 +14,27 @@ def follow_user(followee_req_id):
     # print(curr_user.following, '---------------------')
 
     curr_user_following_list = curr_user.following
-    print(curr_user_following_list)
 
-    pair = []
+    pair = None
     for element in curr_user_following_list:
         if element.to_dict()["followee_id"] == followee_req_id:
-            pair.append(element.to_dict()["followee_id"] )
-            # print('------------------ it matches', element.to_dict())
+            pair = element.to_dict()["followee_id"]
 
     if followee_req_id != curr_user.id:
-        if followee_req_id not in pair:
+        if followee_req_id != pair:
             follow = Follow(
                 follower_id=curr_user.id,
                 followee_id=followee_user.id
             )
             db.session.add(follow)
             db.session.commit()
+            return follow.to_dict()
         else:
-            element = Follow.query.filter(followee_req_id == Follow.followee_id).first()
-            db.session.delete(element)
+            follow = Follow.query.filter(followee_req_id == Follow.followee_id).first()
+            db.session.delete(follow)
             db.session.commit()
-            return element.to_dict()
+            return follow.to_dict()
     else:
         pass
 
-    # follow = Follow.query.filter
-    return {'test': 'yes'}
+    return 
