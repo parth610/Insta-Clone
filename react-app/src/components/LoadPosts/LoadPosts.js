@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { specificLikes } from '../../store/likes';
 import './LoadPosts.css'
 
 const LoadPosts = ({ posts }) => {
+    const likes = Object.values(useSelector(state => state.likes))
+
+    const dispatch = useDispatch();
+    console.log(likes)
+
+    useEffect(() => {
+        dispatch(specificLikes(1))
+    }, [dispatch])
+
+    // const postsLikesCount = async (post_id) => {
+    //     const likes = await dispatch(specificLikes(post_id))
+    //     return likes
+    // }
 
     return (
         <div className='loadPosts'>
@@ -18,7 +33,7 @@ const LoadPosts = ({ posts }) => {
                         <div className="loadPost__contents">
                             <div className="loadPost__lowerLikes">
                                 <i className="fa-solid fa-heart fa-lg" ></i>
-
+                                <div>{likes.length}</div>
                             </div>
                         </div>
                     </div>
