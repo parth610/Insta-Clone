@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
 import './SinglePageView.css'
 
-const SinglePageView = ({ currPost, savePostId}) => {
-    console.log(currPost);
+const SinglePageView = ({ num }) => {
+    console.log(num);
     return (
         <div className='SinglePageView'>
-            {/* <img src={currPost.image_url} alt='image' /> */}
         </div>
     )
 }

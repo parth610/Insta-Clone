@@ -7,7 +7,7 @@ posts_routes = Blueprint('posts', __name__)
 
 @posts_routes.route('/<int:id>', methods=['GET'])
 def one_post(id):
-    post = Post.query.get(id)
+    post = Post.query.get(id).first()
     return post.to_dict()
 
 

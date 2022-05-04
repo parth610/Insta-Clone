@@ -33,7 +33,7 @@ export const createNewPost = (post) => async (dispatch) => {
 }
 
 export const allPosts = () => async (dispatch) => {
-    const response = await fetch('/api/posts', {
+    const response = await fetch('/api/posts/', {
         method: 'GET'
     })
     if (response.ok) {
