@@ -1,0 +1,61 @@
+#postModal {
+  display: flex;
+  position: fixed;
+  /* top: 0;
+  right: 0;
+  left: 0; */
+  /* bottom: 0; */
+  top: 0;
+  right: 0;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* z-index: 10; */
+  backdrop-filter: blur(10px);
+}
+
+#postModal-background {
+  /* position: fixed; */
+  display: flex;
+  flex: 0.8;
+  height: 100vh;
+  /* top: 0;/
+  right: 0;
+  left: 0;
+  bottom: 0; */
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#postModal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  /* background-color: rgba(255, 255, 255, 0.584); */
+  background-color: white;
+  border-radius: 10px;
+  /* margin-top: 5%; */
+  margin-right: 15em;
+  /* height: 450px; */
+  height: fit-content ;
+  width:  fit-content;
+  /* width: 600px; */
+  /* width: 50em; */
+}
+
+.postModal__commentSection {
+  flex: 0.2;
+  height: 100%;
+  /* display: flex; */
+  /* position: fixed; */
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.postModal__commentSection::-webkit-scrollbar {
+  display: none;
+}
