@@ -36,7 +36,8 @@ const CreatePostModal = ({ showPostForm }) => {
     return (
         <div className='createPostModal'>
             <div className='createPostModal__preview'>
-                {imageUrl ? <img className='createPostModal__previeweImage' src={imageUrl} alt='image' /> : <img className='createPostModal__previeweImage' src='https://us.123rf.com/450wm/koblizeek/koblizeek2001/koblizeek200100006/137486703-no-image-vector-symbol-missing-available-icon-no-gallery-for-this-moment-.jpg?ver=6' alt='image' />}
+                {imageUrl ?
+                <img className='createPostModal__previeweImage' src={imageUrl} alt='image' /> : <img className='createPostModal__previeweImage' src='https://us.123rf.com/450wm/koblizeek/koblizeek2001/koblizeek200100006/137486703-no-image-vector-symbol-missing-available-icon-no-gallery-for-this-moment-.jpg?ver=6' alt='image' />}
             </div>
             <form className='createPostModal__form'>
                 <div className="createPostModal__container">
