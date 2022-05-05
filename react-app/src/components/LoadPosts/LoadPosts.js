@@ -70,9 +70,9 @@ const LoadPosts = () => {
             {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
-                        <div className="loadPost__imageContainer" id={post.id} onClick={newNum}>
-                            <button type='button' onClick={soloPostView}>
-                                <div className='loadPost_opaque_container' id={post.id}>
+                        <div className="loadPost__imageContainer" id={post.id}>
+
+                            <div className='loadPost_opaque_container' onClick={newNum} id={post.id}>
                                     <div id={post.id}>
                                         <img className='loadPost__image' src={post.image_url} alt={post.caption} />
                                     </div>
@@ -80,7 +80,6 @@ const LoadPosts = () => {
                                         <div className='caption_text'>{post.caption}</div>
                                     </div>
                                 </div>
-                            </button>
 
                             <div className="loadPost__contents">
                                 <div className="loadPost__lowerLikes">
