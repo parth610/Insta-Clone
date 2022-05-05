@@ -53,16 +53,13 @@ const LoadPosts = () => {
 
     const handleClose = () => {
         setShowPage(false)
-        console.log('handel close <<<<<<<<<<<<<<<<<<<<<<<', showPage)
     }
 
     const soloPostView = () => {
         setShowPage(true)
-        console.log('handel open <<<<<<<<<<<<<<<<<<<<<<<', showPage)
     }
 
 
-    console.log('handel open <<<<<<<<<<<<<<<<<<<<<<<', showPage)
 
     return (
         <div className='loadPosts'>
