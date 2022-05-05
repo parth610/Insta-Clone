@@ -1,0 +1,20 @@
+.all-comments-on-post{
+    overflow-y: scroll;
+}
+
+.individual-comment-block {
+    margin-top: 5px;
+}
+
+.comment-user-info {
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.comment-user-picture {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+}

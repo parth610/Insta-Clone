@@ -26,7 +26,7 @@ const deleteCommentActionCreator = (comment) => ({
 
 
 export const allPostComments = (post_id) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${post_id}`);
+  const res = await fetch(`/api/comments/posts/${post_id}`);
 
   if (res.ok) {
     const comments = await res.json()

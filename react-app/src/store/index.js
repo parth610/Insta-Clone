@@ -11,11 +11,11 @@ import commentReducer from './comments';
 const rootReducer = combineReducers({
   posts: postReducer,
   likes: likeReducer,
+  comments: commentReducer,
   session,
   UserProfileReducer,
   followsReducer,
   followingReducer,
-  commentReducer
 });
 
 
