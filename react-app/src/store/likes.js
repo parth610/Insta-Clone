@@ -59,6 +59,7 @@ export default function likeReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case UPDATE_LIKE: {
+           
             newState = { ...state }
             if (newState[action.data.id]) {
                 delete newState[action.data.id]
