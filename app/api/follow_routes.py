@@ -14,7 +14,7 @@ def follow_user(followee_req_id):
     # print(curr_user.following, '---------------------')
 
     curr_user_following_list = curr_user.following
-    print('---------', curr_user_following_list, '---------')
+    print('---------', curr_user_following_list, '-currUfollowing----')
     check_follow_id = None
     for element in curr_user_following_list:
         if element.to_dict()["followee_id"] == followee_req_id:

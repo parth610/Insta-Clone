@@ -13,8 +13,6 @@ const UserProfileComponent = ({user}) => {
     const userFollowers = Object.values(useSelector(state => state.followsReducer))
     const userFollowees = Object.values(useSelector(state => state.followingReducer))
 
-    console.log(userFollowees, 'followeeee')
-    console.log(userFollowers, 'folloerrrrrs')
 
     const [showFollow, setShowFollow] = useState(false)
     const {userId} = useParams()
@@ -42,7 +40,6 @@ const UserProfileComponent = ({user}) => {
     const followHandler = async (e) => {
         e.preventDefault();
         const followeeId = +e.currentTarget.id;
-        console.log(followeeId)
         await dispatch(followUnfollow(followeeId))
     }
 
