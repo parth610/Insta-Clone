@@ -51,13 +51,18 @@ const LoadPosts = () => {
         setShowPage(true)
     }
 
+    const handleClose = () => {
+        setShowPage(false)
+    }
+
     return (
         <div className='loadPosts'>
-            {showPage && <div className="test__conatainer" onClick={() => setShowPage(false)}><SinglePageView select={select} /></div>}
+            {showPage && <div className="test__conatainer"><SinglePageView select={select} /></div>}
             {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
                         <div className="loadPost__imageContainer" id={post.id} onClick={newNum}>
+
                             <div className='loadPost_opaque_container' id={post.id}>
                                 <div id={post.id}>
                                     <img className='loadPost__image' src={post.image_url} alt={post.caption} />
@@ -66,15 +71,16 @@ const LoadPosts = () => {
                                     <div className='caption_text'>{post.caption}</div>
                                 </div>
                             </div>
+
                             <div className="loadPost__contents">
                                 <div className="loadPost__lowerLikes">
-                                    <button type='button' id={post.id} onClick={likeUpdate}><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
+                                    <button type='button' id={post.id} onClick={likeUpdate}
+                                    style={{backgroundColor: 'transparent', outline: 'none', border: 'none'}}
+                                    ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
                                     <div>{likesFilter(post.id)}</div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 ))
             }

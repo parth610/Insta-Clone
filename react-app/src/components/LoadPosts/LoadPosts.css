@@ -5,6 +5,8 @@
 
 .test__conatainer {
   height: 100vh;
+  display: flex;
+  justify-content: center;
   width: 100vw;
   background-color: rgba(10, 10, 10, 0.699);
   z-index: 2;
