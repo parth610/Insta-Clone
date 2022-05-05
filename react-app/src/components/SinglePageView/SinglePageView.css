@@ -1,5 +1,35 @@
 .singlePageView {
-    position: absolute;
     z-index: 2;
+    flex: 0.75;
     background-color: rbga(255,255,255,0.8);
+    display: flex;
+}
+
+.singlePageViewContainer {
+    display: flex;
+    width: 55em;
+    justify-content: center;
+    align-items: center;
+}
+
+.singlePageView__commentSection {
+    background-color: white;
+    flex: 0.25;
+    height: 100vh;
+    right: 0;
+    position: fixed;
+    background-color: rgb(237, 242, 250);
+}
+
+.singlePageView__image {
+    width: 100%;
+    display: flex;
+    height: 35em;
+    flex-direction: row;
+}
+
+.singlePageView__pic {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }

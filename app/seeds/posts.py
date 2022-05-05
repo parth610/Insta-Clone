@@ -52,8 +52,23 @@ def seed_posts():
         caption='I love this crowd',
         user_id=1
     )
+    post11 = Post(
+        image_url='https://images.unsplash.com/photo-1651604422886-922d0dcc69d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        caption='I love this pic',
+        user_id=2
+    )
+    post12 = Post(
+        image_url='https://images.unsplash.com/photo-1651634038110-fc328508c695?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        caption='I love this flower',
+        user_id=3
+    )
+    post13 = Post(
+        image_url='https://images.unsplash.com/photo-1651596568011-0ef5956d1194?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        caption='I love this turtle',
+        user_id=4
+    )
 
-    db.session.add_all([post1, post2, post3, post4, post5, post6, post7, post8, post9, post10])
+    db.session.add_all([post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13])
     db.session.commit()
 def undo_posts():
     db.session.execute('TRUNCATE posts RESTART IDENTITY CASCADE;')
