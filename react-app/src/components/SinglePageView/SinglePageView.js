@@ -25,7 +25,7 @@ const SinglePageView = ({ select, setShowPage }) => {
 
                     </div>
                     <div className="singlePageView__commentSection">
-                        <SinglePageCommentSection />
+                        <SinglePageCommentSection select={select} />
                     </div>
                 </div>
             </div>

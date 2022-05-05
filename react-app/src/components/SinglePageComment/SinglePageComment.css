@@ -109,3 +109,14 @@
   /* border: none; */
   /* border-radius: 999px; */
 }
+
+
+.editComment__icons {
+  display: flex;
+  column-gap: 2em;
+}
+
+
+.editComment__delete:hover, .editCommnet__edit:hover {
+  cursor: pointer;
+}
