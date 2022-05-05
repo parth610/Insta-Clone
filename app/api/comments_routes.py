@@ -26,9 +26,21 @@ def post_comment(id):
         db.session.commit()
         return comment.to_dict()
 
-# @comments_routes.route('/posts/<int:id>', methods=['PUT'])
-# def update_comment(id):
-#     form = CommentForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         update_comment = Comment.query.get()
+@comments_routes.route('/<int:id>', methods=['PUT'])
+def update_comment(id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        update_comment = Comment.query.get(id)
+        form.populate_obj(update_comment)
+
+        db.session.add(update_comment)
+        db.session.commit()
+        return update_comment.to_dict()
+
+@comments_routes.route('/<int:id>', methods=['DELETE'])
+def delete_comment(id):
+    delete_comment = Comment.query.get(id)
+    db.session.delete(delete_comment)
+    db.session.commit()
+    return delete_comment.to_dict()
