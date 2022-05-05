@@ -8,7 +8,8 @@
 
 .singlePageView {
     z-index: 2;
-    background-color: red;
+    border: solid rgb(244, 181, 69);
+    background-color: rgba(249, 240, 214, 0.876);
     height: 90%;
     display: flex;
     justify-content: center;
@@ -18,32 +19,32 @@
 
 .singlePageContents {
     display: flex;
-    margin: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
     width: 80%;
 }
 
 
 .singlePageView__commentSection {
-    background-color: white;
+    background-color: rgba(202, 227, 255, 0.481);
     margin-left: 20px;
     width: 500px;
-    border: 1px solid red;
+    border: solid rgb(86, 147, 219);
     border-radius: 5px;
     position: relative;
-    background-color: rgb(237, 242, 250);
 }
 
 .singlePageView__image {
-    /* width: auto; */
     display: flex;
-    /* height: 50rem; */
     flex-direction: row;
 }
 
 .singlePageView__pic {
+    min-height: 300px;
     display: flex;
     width: 100%;
     height: 100%;
+    border-radius: 5px;
 }
 
 
@@ -55,5 +56,16 @@
     border: none;
     z-index: 4;
     position: relative;
-    bottom: 40px;
+    bottom: 80px;
+}
+
+.post__icons {
+    display: flex;
+    justify-content: flex-star;
+ }
+
+.fa-trash,
+.fa-pen-to-square {
+    color: black;
+    margin: 5px;
 }

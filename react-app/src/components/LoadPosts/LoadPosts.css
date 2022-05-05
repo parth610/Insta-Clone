@@ -25,6 +25,7 @@
 .loadPost__postCard {
   width: 100%;
   display: flex;
+  margin: 0px;
   /* flex-direction: column; */
   align-items: center;
   justify-content: center;
@@ -32,6 +33,7 @@
 }
 
 .loadPost_opaque_container {
+  background-color: black;
   margin: 0px;
   width: 100%;
   display: flex;
