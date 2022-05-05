@@ -4,3 +4,5 @@ from app.models import Comment, db
 from app.forms import CommentForm
 
 comments_routes = Blueprint('comments', __name__)
+
+
