@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { allPosts } from '../../store/posts'
 import LogoutButton from '../auth/LogoutButton'
 import LoadPosts from '../LoadPosts/LoadPosts'
@@ -41,13 +42,12 @@ const Home = () => {
 
                             <div className="home__avatar">
                             {developer?.profile_pic ?
-                                <img className='home__displayPic' src={developer?.profile_pic} alt='' /> :
+                                <NavLink to={`/users/${developer.id}`}><img className='home__displayPic' src={developer?.profile_pic} alt='' /></NavLink> :
                                 <div className='home__default'>{developer?.first_name[0]}</div>
-
                             }
                             </div>
                             <div className="developers__info">
-                                {developer?.first_name} {developer?.last_name}
+                                <NavLink to={`/users/${developer.id}`}>{developer?.first_name} {developer?.last_name}</NavLink>
                             </div>
                             <div className="developers__contacts">
                                 <ul className='developers__links'>
