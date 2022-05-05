@@ -17,12 +17,15 @@ def get_likes(id):
 @likes_routes.route('/posts/<int:id>', methods=['POST'])
 def update_like(id):
 
-    queried_like = PostLike.query.filter((PostLike.post_id == id) and (PostLike.user_id == current_user.id)).first()
+    queried_likes = PostLike.query.filter(PostLike.post_id == id).all()
+    user_like = [like for like in queried_likes if like.user_id == current_user.id]
 
-    if queried_like:
-        db.session.delete(queried_like)
+    print('------',user_like,'----------')
+
+    if user_like:
+        db.session.delete(user_like[0])
         db.session.commit()
-        return queried_like.to_dict()
+        return user_like[0].to_dict()
     else:
         like = PostLike(
             user_id = current_user.id,
