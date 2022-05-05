@@ -30,27 +30,27 @@ function App() {
     <BrowserRouter>
       {user && <NavBar />}
       <Switch>
-        {/* <Route path='/login' exact={true}>
+          {/* <Route path='/login' exact={true}>
           <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
+          </Route>
+          <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        {user ?
-          <Route path='/home'>
-            <Home />
-          </Route> :
-          <Route path='/' exact={true} >
-            <LandingPage />
-          </Route>
-        }
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId'>
-          <UserProfileComponent  user={user} />
-        </ProtectedRoute>
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
+          {user ?
+            <Route path='/home'>
+              <Home />
+            </Route> :
+            <Route path='/' exact={true} >
+              <LandingPage />
+            </Route>
+          }
+          <ProtectedRoute path='/users' exact={true} >
+            <UsersList />
+          </ProtectedRoute>
+          <ProtectedRoute path='/users/:userId'>
+            <UserProfileComponent user={user} />
+          </ProtectedRoute>
+          {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute> */}
       </Switch>

@@ -53,29 +53,39 @@ const LoadPosts = () => {
 
     const handleClose = () => {
         setShowPage(false)
+        console.log('handel close <<<<<<<<<<<<<<<<<<<<<<<', showPage)
     }
+
+    const soloPostView = () => {
+        setShowPage(true)
+        console.log('handel open <<<<<<<<<<<<<<<<<<<<<<<', showPage)
+    }
+
+
+    console.log('handel open <<<<<<<<<<<<<<<<<<<<<<<', showPage)
 
     return (
         <div className='loadPosts'>
-            {showPage && <div className="test__conatainer" onClick={handleClose}><SinglePageView select={select} /></div>}
+            {showPage ? <div className="test__conatainer" onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
             {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
-                        <div className="loadPost__imageContainer" >
-
-                            <div className='loadPost_opaque_container' id={post.id} onClick={newNum}>
-                                <div id={post.id}>
-                                    <img className='loadPost__image' src={post.image_url} alt={post.caption} />
+                        <div className="loadPost__imageContainer" id={post.id} onClick={newNum}>
+                            <button type='button' onClick={soloPostView}>
+                                <div className='loadPost_opaque_container' id={post.id}>
+                                    <div id={post.id}>
+                                        <img className='loadPost__image' src={post.image_url} alt={post.caption} />
+                                    </div>
+                                    <div className="loadPost__captionBlock">
+                                        <div className='caption_text'>{post.caption}</div>
+                                    </div>
                                 </div>
-                                <div className="loadPost__captionBlock">
-                                    <div className='caption_text'>{post.caption}</div>
-                                </div>
-                            </div>
+                            </button>
 
                             <div className="loadPost__contents">
                                 <div className="loadPost__lowerLikes">
                                     <button type='button' id={post.id} onClick={likeUpdate}
-                                    style={{backgroundColor: 'transparent', outline: 'none', border: 'none'}}
+                                        style={{ backgroundColor: 'transparent', outline: 'none', border: 'none' }}
                                     ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
                                     <div>{likesFilter(post.id)}</div>
                                 </div>

@@ -1,6 +1,8 @@
 import React from 'react'
 import './SinglePageComment.css'
-const SinglePageComment = () => {
+
+
+const SinglePageCommentForm = () => {
     return (
         <div className='editComment'>
             <header className='editComment__editComment'>Edit comment</header>
@@ -37,4 +39,4 @@ const SinglePageComment = () => {
     )
 }
 
-export default SinglePageComment
+export default SinglePageCommentForm
