@@ -39,11 +39,7 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
 
     return (
         <div className='editComment'>
-            <header className='editComment__editComment'>Edit comment</header>
-            <div className="editComment__icons">
-                <i className="fa-solid fa-pen-to-square editCommnet__edit" onClick={() => setShowModal(true)}></i>
-                <i className="fa-solid fa-trash editComment__delete" onClick={handleDelete}></i>
-            </div>
+            <header className='editComment__editComment'>Comments</header>
             <div className='editComment__container'>
                 <div className="editComment__commentSection">
                     <div className="editComment__avatar">
