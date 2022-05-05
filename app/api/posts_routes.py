@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import Post, db
 from app.forms import PostForm
 
@@ -54,3 +54,9 @@ def delete_post(id):
     db.session.delete(delete_post)
     db.session.commit()
     return delete_post.to_dict()
+
+@posts_routes.route('/user-profile-post/<int:id>')
+@login_required
+def get_user_posts(id):
+    user_posts = Post.query.filter(Post.user_id == id).all()
+    return jsonify([post.to_dict() for post in user_posts])
