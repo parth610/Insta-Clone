@@ -3,6 +3,7 @@ const GET_POST = 'posts/GET_POST'
 const CREATE_POST = 'posts/CREATE_POST';
 const DELETE_POST = 'posts/DELETE_POST'
 const EDIT_POST = 'posts/EDIT_POST'
+const GET_USERS_POST = 'posts/USERS'
 
 const getPostActionCreator = (post) => ({
     type: GET_POST,
@@ -28,6 +29,21 @@ const deletePostActionCreator = (post) => ({
     type: DELETE_POST,
     post
 })
+
+const getUserPosts = (posts) => ({
+    type: GET_USERS_POST,
+    posts
+})
+
+export const loadUsersPosts = (userId) => async(dispatch) => {
+    const response = await fetch(`/api/posts/user-profile-post/${userId}`)
+
+    if (response.ok) {
+        const allUserPost = await response.json()
+        dispatch(getUserPosts(allUserPost))
+        return allUserPost;
+    }
+}
 
 
 export const createNewPost = (post) => async (dispatch) => {
@@ -123,6 +139,14 @@ export default function postReducer(state = initialState, action) {
             delete newState[action.post.id]
             return newState;
         }
+        case GET_USERS_POST: {
+            newState = {}
+            action.posts.map(post => {
+                return newState[post.id] = post
+            })
+            return newState;
+        }
+
         default:
             return state;
     }
