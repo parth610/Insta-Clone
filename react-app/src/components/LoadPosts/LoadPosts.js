@@ -57,13 +57,13 @@ const LoadPosts = () => {
 
     return (
         <div className='loadPosts'>
-            {showPage && <div className="test__conatainer"><SinglePageView select={select} /></div>}
+            {showPage && <div className="test__conatainer" onClick={handleClose}><SinglePageView select={select} /></div>}
             {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
-                        <div className="loadPost__imageContainer" id={post.id} onClick={newNum}>
+                        <div className="loadPost__imageContainer" >
 
-                            <div className='loadPost_opaque_container' id={post.id}>
+                            <div className='loadPost_opaque_container' id={post.id} onClick={newNum}>
                                 <div id={post.id}>
                                     <img className='loadPost__image' src={post.image_url} alt={post.caption} />
                                 </div>
