@@ -14,7 +14,7 @@ def follow_user(followee_req_id):
     # print(curr_user.following, '---------------------')
 
     curr_user_following_list = curr_user.following
-
+    print('---------', curr_user_following_list, '---------')
     check_follow_id = None
     for element in curr_user_following_list:
         if element.to_dict()["followee_id"] == followee_req_id:
@@ -30,10 +30,12 @@ def follow_user(followee_req_id):
             db.session.commit()
             return follow.to_dict()
         else:
-            follow = Follow.query.filter(followee_req_id == Follow.followee_id).first()
-            db.session.delete(follow)
-            db.session.commit()
-            return follow.to_dict()
+            follows = Follow.query.filter(followee_req_id == Follow.followee_id).all()
+            follow = [follow for follow in follows if follow.to_dict()["follower_id"] == curr_user.id]
+            if follow:
+                db.session.delete(follow[0])
+                db.session.commit()
+                return follow[0].to_dict()
     else:
         pass
 
