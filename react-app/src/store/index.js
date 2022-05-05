@@ -6,14 +6,16 @@ import session from './session';
 import UserProfileReducer from './userProfile';
 import followsReducer from './follows';
 import followingReducer from './following';
+import commentReducer from './comments';
 
 const rootReducer = combineReducers({
   posts: postReducer,
   likes: likeReducer,
+  comments: commentReducer,
   session,
   UserProfileReducer,
   followsReducer,
-  followingReducer
+  followingReducer,
 });
 
 

@@ -29,6 +29,7 @@
     background-color: rgba(202, 227, 255, 0.481);
     margin-left: 20px;
     width: 500px;
+    max-height: 800px;
     border: solid rgb(86, 147, 219);
     border-radius: 5px;
     position: relative;
@@ -47,6 +48,12 @@
     border-radius: 5px;
 }
 
+.caption-contents {
+    background-color: rgba(0, 0, 0, 0.516);
+    color: white;
+    padding: 10px;
+}
+
 
 .close-post-view-button {
     background-color: red;
@@ -56,7 +63,7 @@
     border: none;
     z-index: 4;
     position: relative;
-    bottom: 80px;
+    bottom: 200px;
 }
 
 .post__icons {

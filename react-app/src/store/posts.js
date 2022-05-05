@@ -1,18 +1,19 @@
 const ALL_POSTS = 'posts/ALL_POSTS'
 const GET_POST = 'posts/GET_POST'
 const CREATE_POST = 'posts/CREATE_POST';
-const DELETE_POST = 'posts/DELETE_POST'
 const EDIT_POST = 'posts/EDIT_POST'
 const GET_USERS_POST = 'posts/USERS'
+const DELETE_POST = 'posts/DELETE_POST'
 
-const getPostActionCreator = (post) => ({
-    type: GET_POST,
-    post
-})
 
 const allPostsActionCreator = (posts) => ({
     type: ALL_POSTS,
     posts
+})
+
+const getPostActionCreator = (post) => ({
+    type: GET_POST,
+    post
 })
 
 const createPostActionCreator = (post) => ({
@@ -46,21 +47,6 @@ export const loadUsersPosts = (userId) => async(dispatch) => {
 }
 
 
-export const createNewPost = (post) => async (dispatch) => {
-    const response = await fetch('/api/posts/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post)
-    })
-    if (response.ok) {
-        const newPost = await response.json()
-        dispatch(createPostActionCreator(newPost))
-        return newPost;
-    }
-}
-
 export const allPosts = () => async (dispatch) => {
     const response = await fetch('/api/posts/', {
         method: 'GET'
@@ -82,18 +68,34 @@ export const getPost = (post_id) => async (dispatch) => {
     }
 }
 
-export const editPost = (post) => async dispatch => {
+export const createNewPost = (post) => async (dispatch) => {
+    const response = await fetch('/api/posts/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(post)
+    })
+
+    if (response.ok) {
+        const newPost = await response.json()
+        dispatch(createPostActionCreator(newPost))
+        return newPost;
+    }
+}
+
+export const editPost = (post) => async (dispatch) => {
     const response = await fetch(`/api/posts/${post.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(post)
     })
+
     if (response.ok) {
         const post = await response.json()
         dispatch(editPostActionCreator(post))
         return post
     }
 }
+
 export const deletePost = (post_id) => async (dispatch) => {
     const response = await fetch(`/api/posts/${post_id}`, {
         method: 'DELETE',
@@ -109,6 +111,7 @@ export const deletePost = (post_id) => async (dispatch) => {
 
 
 let initialState = {}
+
 export default function postReducer(state = initialState, action) {
     let newState
     switch (action.type) {
@@ -128,7 +131,7 @@ export default function postReducer(state = initialState, action) {
             newState = { ...state }
             newState[action.post.id] = action.post
             return newState;
-        }
+        }// these two are identical, could we reuse?
         case EDIT_POST: {
             newState = { ...state }
             newState[action.post.id] = action.post

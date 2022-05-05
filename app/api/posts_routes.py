@@ -38,7 +38,7 @@ def new_post():
 
 @posts_routes.route('/<int:id>', methods=['PUT'])
 def update_post(id):
-    form=PostForm()
+    form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         update_post = Post.query.get(id)
