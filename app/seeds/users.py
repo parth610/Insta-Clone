@@ -54,9 +54,9 @@ def seed_users():
         last_name='Chamberlain',
         private=False,
         owner= True,
-        profile_pic='https://images.unsplash.com/photo-1651599464361-3979cd0ecb40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60m',
+        profile_pic='https://images.fineartamerica.com/images/artworkimages/medium/2/no-face-my-neighbor-totoro-valentina-hramov-transparent.png',
         github='https://github.com/JacobDChamberlain',
-        linkedin=None
+        linkedin='https://www.linkedin.com/in/jacob-chamberlain-8a5484237/'
         )
     mason = User(
         username='mason',
