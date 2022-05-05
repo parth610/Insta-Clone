@@ -17,6 +17,8 @@ const UserProfileComponent = ({user}) => {
     const [showFollow, setShowFollow] = useState(false)
     const {userId} = useParams()
 
+    console.log(userFollowers, 'follower ............')
+
     useEffect(() => {
         dispatch(loadfollowers(userId))
     }, [userId, dispatch])

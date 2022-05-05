@@ -44,11 +44,9 @@ export default function followsReducer(state = initialState, action) {
     switch (action.type) {
         case UPDATE_FOLLOW: {
             newState = { ...state }
-            console.log('--state--', state, '---')
-            console.log('--newState----', newState, '-------')
-            console.log('--newsfollow--', newState[action.follow.id], '----')
-            console.log('--actfol------', action.follow, '---')
-            if (newState[action.follow.id]) {
+            
+            if (Object.keys(newState).includes(`${action.follow.id}`)) {
+
                 delete newState[action.follow.id]
                 return newState
             } else {
