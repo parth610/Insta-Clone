@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import SinglePageCommentForm from '../SinglePageComment/SinglePageCommentForm';
 import '../SinglePageView/SinglePageView.css'
 
-const SinglePageCommentSection = ({ select }) => {
+const SinglePageCommentSection = ({ select, handleClose }) => {
     return (
         <div>
-            <SinglePageCommentForm select={select} />
+            <SinglePageCommentForm select={select} handleClose={handleClose} />
         </div>
     )
 }

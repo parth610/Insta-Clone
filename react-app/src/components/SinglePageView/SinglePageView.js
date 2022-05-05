@@ -3,7 +3,7 @@ import SinglePageCommentSection from '../SinglePageCommentSection/SinglePageComm
 import './SinglePageView.css'
 
 const SinglePageView = ({ select, setShowPage }) => {
-    const [deleteVerify, setDeleteVerify] = useState(false)
+    // const [image, setImage] = useState(select?.image_url ? select?.image_url : '')
 
     const handleClose = () => {
         setShowPage(false)
@@ -15,7 +15,7 @@ const SinglePageView = ({ select, setShowPage }) => {
                 <div className='singlePageContents'>
                     <div className="singlePageView__image" >
                         <div className=''>
-                            <img className='singlePageView__pic' src={select.image_url} alt='' />
+                            <img className='singlePageView__pic' src={select?.image_url} alt='' />
 
                             <button type='button' className='close-post-view-button' onClick={handleClose}>
                                 {/* <i className="fa-solid fa-xmark fa-lg"></i> */}
@@ -25,7 +25,7 @@ const SinglePageView = ({ select, setShowPage }) => {
 
                     </div>
                     <div className="singlePageView__commentSection">
-                        <SinglePageCommentSection select={select} />
+                        <SinglePageCommentSection select={select} handleClose={handleClose}/>
                     </div>
                 </div>
             </div>

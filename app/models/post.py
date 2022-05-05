@@ -10,9 +10,9 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now(), server_onupdate=db.func.now())
 
-    comments = db.relationship('Comment', back_populates='post')
+    comments = db.relationship('Comment', back_populates='post', cascade='delete, all')
     user = db.relationship('User', back_populates='posts')
-    postlikes = db.relationship('PostLike', back_populates='post')
+    postlikes = db.relationship('PostLike', back_populates='post', cascade='delete,all')
 
     def to_dict(self):
         return {
