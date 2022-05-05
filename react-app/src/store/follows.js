@@ -20,6 +20,7 @@ export const followUnfollow = (followeeId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
+        console.log('--------',data,'----data------')
         dispatch(updateFollow(data))
         return response
     }
@@ -37,12 +38,16 @@ export const loadfollowers = (userId) => async (dispatch) => {
 
 
 
-const initialState = {}
-
+let initialState = {}
 export default function followsReducer(state = initialState, action) {
+    let newState;
     switch (action.type) {
         case UPDATE_FOLLOW: {
-            const newState = { ...state }
+            newState = { ...state }
+            console.log('--state--', state, '---')
+            console.log('--newState----', newState, '-------')
+            console.log('--newsfollow--', newState[action.follow.id], '----')
+            console.log('--actfol------', action.follow, '---')
             if (newState[action.follow.id]) {
                 delete newState[action.follow.id]
                 return newState
@@ -51,9 +56,8 @@ export default function followsReducer(state = initialState, action) {
                 return newState;
             }
         }
-
         case GET_FOLLOWERS: {
-            const newState = {}
+            newState = {}
             action.followers.map(follower => (
                 newState[follower.id] = action.follower
             ))
@@ -62,7 +66,5 @@ export default function followsReducer(state = initialState, action) {
 
         default:
             return state;
-
-
     }
 }

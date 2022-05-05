@@ -75,7 +75,7 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
                         <label htmlFor='editComment__editCaption'>
                             <input
                                 className='editComment__captionInput'
-                                placeholder='Enter a new pic'
+                                placeholder='Enter a new caption'
                                 type='text'
                                 onChange={(e) => setCurrCaption(e.target.value)}
                             />
