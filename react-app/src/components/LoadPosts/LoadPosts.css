@@ -7,6 +7,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100vw;
   background-color: rgba(10, 10, 10, 0.699);
   z-index: 2;
