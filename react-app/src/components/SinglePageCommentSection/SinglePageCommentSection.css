@@ -4,12 +4,12 @@
 
 .individual-comment-block {
     margin-top: 5px;
+    border-bottom: 1px solid white;
 }
 
 .comment-user-info {
     display: flex;
     align-items: center;
-    border: 1px solid red;
 }
 
 .comment-user-picture {
@@ -18,3 +18,12 @@
     height: 40px;
     border-radius: 25px;
 }
+
+.comment-button-block {
+    display: flex;
+    /* justify-content: flex-end; */
+}
+
+/* .editComment__form {
+    display: none;
+} */
