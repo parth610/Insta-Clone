@@ -47,7 +47,7 @@ const Home = () => {
                             }
                             </div>
                             <div className="developers__info">
-                                <NavLink to={`/users/${developer.id}`}>{developer?.first_name} {developer?.last_name}</NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none'}} to={`/users/${developer.id}`}>{developer?.first_name} {developer?.last_name}</NavLink>
                             </div>
                             <div className="developers__contacts">
                                 <ul className='developers__links'>
