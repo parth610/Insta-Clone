@@ -52,39 +52,6 @@
 }
 
 
-.navBar__searchBar {
-  width: 15em;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  outline: none;
-  cursor: text;
-  border-radius: 10px;
-  background-color: rgb(237, 242, 250);
-  border: none;
-  text-indent: 1em;
-}
-
-.navBar__searchBar i {
-  color: rgb(194, 198, 205);
-  position: relative;
-}
-
-.navBar__searchBar > input::placeholder {
-  color: lightgrey;
-
-}
-
-.search-icon {
-  outline: none;
-  cursor: text;
-  border-radius: 25px;
-  background-color: transparent;
-  border: none;
-  margin-left: 10px;
-}
 
 
 .navBar__right > div {

@@ -13,6 +13,7 @@ const clearSearchActionCreator = () => ({
 
 export const searchResultThunk = (search_input) => async dispatch => {
     // console.log(search_input);
+    // search query
     const response = await fetch('/api/search/users?search_input='+search_input)
     if (response.ok) {
         const search_result = await response.json()
@@ -34,7 +35,6 @@ const searchReducer = (state = {}, action) => {
             // action.search.results.forEach(user => newState[search_results] = user)
             // console.log(action, '<<<<<<<<<<<<<<<<')
             newState['search_results'] = search_results
-            // console.log(newState, '<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>', newState);
             return newState
             // return
             // console.log(search_results, '<<<<<<<<<<<<<<<<<<');
