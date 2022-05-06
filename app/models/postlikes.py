@@ -14,5 +14,8 @@ class PostLike(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'post_id': self.post_id
+            'post_id': self.post_id,
+            'user_fName': self.user.first_name,
+            'user_lName': self.user.last_name,
+            'user_profile_pic': self.user.profile_pic
         }

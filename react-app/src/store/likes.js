@@ -43,15 +43,15 @@ export const getAllLikes = () => async (dispatch) => {
     }
 }
 
-// export const specificLikes = (post_id) => async (dispatch) => {
-//     const response = await fetch(`/api/likes/posts/${post_id}`)
+export const specificLikes = (post_id) => async (dispatch) => {
+    const response = await fetch(`/api/likes/posts/${post_id}`)
 
-//     if (response.ok) {
-//         const likes = await response.json();
-//         dispatch(findAllLikesForPost(likes))
-//         return response;
-//     }
-// }
+    if (response.ok) {
+        const likes = await response.json();
+        dispatch(findAllLikesForPost(likes))
+        return response;
+    }
+}
 
 
 let initialState = {}
@@ -59,7 +59,6 @@ export default function likeReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case UPDATE_LIKE: {
-           
             newState = { ...state }
             if (newState[action.data.id]) {
                 delete newState[action.data.id]
@@ -77,7 +76,7 @@ export default function likeReducer(state = initialState, action) {
             return newState;
         }
         case SPECIFIC_POST_LIKES: {
-            newState = { ...state }
+            newState = {}
             action.likes.map(like => {
                 return newState[like.id] = like
             })

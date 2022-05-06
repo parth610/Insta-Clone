@@ -25,6 +25,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     }
+    history.push('/home')
   };
 
   const handleDemo = async (e) => {
@@ -67,7 +68,7 @@ const SignUpForm = () => {
   }
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
@@ -77,66 +78,66 @@ const SignUpForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
-        <input
-          className='login-input'
-          placeholder='First Name'
-          type='text'
-          name='firstName'
-          onChange={updateFirstName}
-          value={firstName}
-        ></input>
-        <input
-          className='login-input'
-          placeholder='Last Name'
-          type='text'
-          name='lastName'
-          onChange={updateLastName}
-          value={lastName}
-        ></input>
-        <input
-          className='login-input'
-          placeholder='Username'
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-        <input
-          className='login-input'
-          placeholder='Email'
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-        <input
-          className='login-input'
-          placeholder='Password'
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-        <input
-          className='login-input'
-          placeholder='Confirm Password'
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
+      <input
+        className='login-input'
+        placeholder='First Name'
+        type='text'
+        name='firstName'
+        onChange={updateFirstName}
+        value={firstName}
+      ></input>
+      <input
+        className='login-input'
+        placeholder='Last Name'
+        type='text'
+        name='lastName'
+        onChange={updateLastName}
+        value={lastName}
+      ></input>
+      <input
+        className='login-input'
+        placeholder='Username'
+        type='text'
+        name='username'
+        onChange={updateUsername}
+        value={username}
+      ></input>
+      <input
+        className='login-input'
+        placeholder='Email'
+        type='text'
+        name='email'
+        onChange={updateEmail}
+        value={email}
+      ></input>
+      <input
+        className='login-input'
+        placeholder='Password'
+        type='password'
+        name='password'
+        onChange={updatePassword}
+        value={password}
+      ></input>
+      <input
+        className='login-input'
+        placeholder='Confirm Password'
+        type='password'
+        name='repeat_password'
+        onChange={updateRepeatPassword}
+        value={repeatPassword}
+        required={true}
+      ></input>
       <div>
         <label for='private-box'>Private
-        <input
-          className='private-checkbox'
-          type="checkbox"
-          name="private"
-          id='private-box'
-          checked={isPrivate}
-          onChange={updateIsPrivate}
+          <input
+            className='private-checkbox'
+            type="checkbox"
+            name="private"
+            id='private-box'
+            checked={isPrivate}
+            onChange={updateIsPrivate}
           ></input>
-          </label>
+        </label>
       </div>
       <button className='demo-button' type='submit'>Sign Up</button>
       <button className='demo-button' type='button' onClick={handleDemo}>Demo</button>

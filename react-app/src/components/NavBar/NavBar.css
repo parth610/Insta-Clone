@@ -52,40 +52,6 @@
 }
 
 
-.navBar__searchBar {
-  width: 15em;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  outline: none;
-  cursor: text;
-  border-radius: 10px;
-  background-color: rgb(237, 242, 250);
-  border: solid 1px #5693db;
-  text-indent: 1em;
-}
-
-.navBar__searchBar i {
-  color: #5693db;
-  position: relative;
-}
-
-.navBar__searchBar > input::placeholder {
-  color: lightgrey;
-
-}
-
-.search-icon {
-  height: 100%;
-  outline: none;
-  cursor: text;
-  background-color: transparent;
-  border: none;
-  margin-left: 10px;
-  font-family: poppins, sans-serif;
-}
 
 
 .navBar__right > div {

@@ -9,7 +9,6 @@ def search_user():
     users = User.query.all()
     args = request.args.get('search_input')
     search_results = []
-    print('\n\n', args, '\n\n')
     for user in users:
         full_name = f'{user.first_name} {user.last_name}'.lower()
         if user != current_user and full_name.find(args.lower()) >= 0:
