@@ -92,3 +92,7 @@
 .loadPost__heartCount {
   color: rgb(246, 173, 71);
 }
+
+.loadPost__likeCounter:hover {
+  color: #5693db;
+}

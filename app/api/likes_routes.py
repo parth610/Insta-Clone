@@ -20,7 +20,6 @@ def update_like(id):
     queried_likes = PostLike.query.filter(PostLike.post_id == id).all()
     user_like = [like for like in queried_likes if like.user_id == current_user.id]
 
-    print('------',user_like,'----------')
 
     if user_like:
         db.session.delete(user_like[0])

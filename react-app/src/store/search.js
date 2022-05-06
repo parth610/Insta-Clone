@@ -14,13 +14,18 @@ const clearSearchActionCreator = () => ({
 export const searchResultThunk = (search_input) => async dispatch => {
     // console.log(search_input);
     // search query
-    const response = await fetch('/api/search/users?search_input='+search_input)
+    const response = await fetch('/api/search/users?search_input=' + search_input)
     if (response.ok) {
         const search_result = await response.json()
         // console.log(search_result);
         dispatch(searchResultActionCreator(search_result, search_input))
         return search_result
     }
+}
+
+export const emptySearchThunk = () => async dispatch => {
+    dispatch(clearSearchActionCreator())
+    return;
 }
 
 
@@ -44,6 +49,11 @@ const searchReducer = (state = {}, action) => {
             // console.log(action.search, 'this was the action for search', '!!!!!!!!!!!!!!!!!!!!!!!!')
             // console.log(newState, 'this is the newState for the search', '?????????????????????????');
             // return newState;
+        }
+        case EMPTY_RESULT: {
+            newState = { ...state };
+            newState['search_results'] = [];
+            return newState;
         }
         default:
             return state
