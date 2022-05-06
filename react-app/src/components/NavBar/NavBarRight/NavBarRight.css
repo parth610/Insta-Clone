@@ -1,0 +1,22 @@
+.navBar__home {
+    text-decoration: none;
+    color: #f4b545;
+}
+
+
+.logout-button {
+    font-family: poppins, sans-serif;
+    width: 70px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #ffffff00;
+    color: #5693db;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+    color: #f4b545;
+}

@@ -29,7 +29,7 @@
   overflow-y: scroll;
   flex-direction: column;
   /* background: rgb(255, 240, 200); */
-  background: rgb(249, 240, 214);
+  background: #fffbf5;
   align-items: center;
   overflow-x: hidden;
 }

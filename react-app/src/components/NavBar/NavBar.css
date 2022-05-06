@@ -8,9 +8,9 @@
   position: fixed;
   top: 0;
   height: 75px;
-  background-color: rgb(249, 240, 214);
+  background-color: #fff7e8;
   /* background: rgb(255, 255, 201); */
-  border-bottom: solid lightgrey;
+  box-shadow: 1px 1px 10px rgba(65, 65, 65, 0.1);
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -63,12 +63,12 @@
   cursor: text;
   border-radius: 10px;
   background-color: rgb(237, 242, 250);
-  border: none;
+  border: solid 1px #5693db;
   text-indent: 1em;
 }
 
 .navBar__searchBar i {
-  color: rgb(194, 198, 205);
+  color: #5693db;
   position: relative;
 }
 
@@ -78,12 +78,13 @@
 }
 
 .search-icon {
+  height: 100%;
   outline: none;
   cursor: text;
-  border-radius: 25px;
   background-color: transparent;
   border: none;
   margin-left: 10px;
+  font-family: poppins, sans-serif;
 }
 
 
@@ -106,7 +107,7 @@
 }
 
 .navBar__right a {
-  color: black;
+  color: #5693db;
 }
 
 .navBar__middle div {

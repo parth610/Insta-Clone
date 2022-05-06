@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { allPosts } from '../../store/posts'
-import LogoutButton from '../auth/LogoutButton'
 import LoadPosts from '../LoadPosts/LoadPosts'
 import './Home.css'
 const Home = () => {
@@ -27,7 +26,7 @@ const Home = () => {
     return (
         <div className='home'>
             <div className="home__left">
-                <LogoutButton />
+                {/* <LogoutButton /> */}
             </div>
             <div className='home__middle'>
                 <LoadPosts
