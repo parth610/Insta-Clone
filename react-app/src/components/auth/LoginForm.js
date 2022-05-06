@@ -18,6 +18,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+    history.push('/home')
   };
 
   const handleDemo = async (e) => {

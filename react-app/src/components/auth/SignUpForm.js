@@ -20,7 +20,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(firstName, lastName, username, email, password, isPrivate));
+      const data = await dispatch(signUp(firstName, lastName, username, email, password));
       if (data) {
         setErrors(data)
       }
@@ -63,9 +63,9 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  const updateIsPrivate = () => {
-    setIsPrivate(!isPrivate)
-  }
+  // const updateIsPrivate = () => {
+  //   setIsPrivate(!isPrivate)
+  // }
 
   if (user) {
     return <Redirect to='/home' />;
@@ -128,7 +128,7 @@ const SignUpForm = () => {
         required={true}
       ></input>
       <div>
-        <label for='private-box'>Private
+        {/* <label for='private-box'>Private
           <input
             className='private-checkbox'
             type="checkbox"
@@ -137,7 +137,7 @@ const SignUpForm = () => {
             checked={isPrivate}
             onChange={updateIsPrivate}
           ></input>
-        </label>
+        </label> */}
       </div>
       <button className='demo-button' type='submit'>Sign Up</button>
       <button className='demo-button' type='button' onClick={handleDemo}>Demo</button>
