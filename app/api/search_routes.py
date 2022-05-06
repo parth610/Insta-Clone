@@ -1,10 +1,17 @@
 from flask import Blueprint, jsonify, request
 from app.models import db, User
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 search_routes = Blueprint('search', __name__)
 
-@search_routes.route('/')
-def all_users():
+@search_routes.route('/users')
+def search_user():
     users = User.query.all()
-    return jsonify([user.to_dict() for user in users])
+    args = request.args.get('search_input')
+    search_results = []
+    print('\n\n', args, '\n\n')
+    for user in users:
+        full_name = f'{user.first_name} {user.last_name}'.lower()
+        if user != current_user and full_name.find(args.lower()) >= 0:
+            search_results.append(user.to_dict())
+    return {'results': search_results}

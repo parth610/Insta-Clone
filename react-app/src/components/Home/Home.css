@@ -105,3 +105,7 @@
 .developers__links .fa-github:hover, .fa-linkedin:hover {
   color: rgb(253, 176, 82)
 }
+
+.developers__info > a  {
+  color: rgb(100, 146, 213)
+}
