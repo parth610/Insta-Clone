@@ -4,18 +4,27 @@ import SinglePageCommentForm from '../SinglePageComment/SinglePageCommentForm';
 import { allPostComments } from '../../store/comments';
 import '../SinglePageCommentSection/SinglePageCommentSection.css'
 import userImg from '../../images/user.png'
+import { allPosts } from '../../store/posts';
 
-const SinglePageCommentSection = ({ select, handleClose }) => {
+const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
     const dispatch = useDispatch()
     const comments = Object.values(useSelector(state => state.comments))
+    const posts = Object.values(useSelector(state => state.posts))
+    const post = posts.find(post => post.id === select.id)
+
+
 
     useEffect(() => {
         dispatch(allPostComments(select?.id))
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(allPosts())
+    }, [dispatch, currCaption])
+
     return (
         <div>
-            <div className='caption-contents'>{select?.caption}</div>
+            <div className='caption-contents'>{post?.caption}</div>
             <SinglePageCommentForm select={select} handleClose={handleClose} />
 
             <div className='all-comments-on-post'>

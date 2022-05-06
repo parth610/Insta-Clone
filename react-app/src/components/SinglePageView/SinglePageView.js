@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, editPost } from '../../store/posts';
+import { deletePost, editPost, allPosts } from '../../store/posts';
 import SinglePageCommentSection from '../SinglePageCommentSection/SinglePageCommentSection';
 import './SinglePageView.css'
 
@@ -10,7 +10,10 @@ const SinglePageView = ({ select, setShowPage }) => {
     const [showModal, setShowModal] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
-    // const [image, setImage] = useState(select?.image_url ? select?.image_url : '')
+
+    useEffect(() => {
+        dispatch(allPosts())
+    }, [dispatch])
 
     const handleClose = () => {
         setShowPage(false)
@@ -34,7 +37,8 @@ const SinglePageView = ({ select, setShowPage }) => {
         }
 
         await dispatch(editPost(edit_post))
-        handleClose()
+        setCurrCaption(edit_post.caption)
+        setShowModal(false)
     }
 
     const handleDelete = async (e) => {
@@ -59,7 +63,8 @@ const SinglePageView = ({ select, setShowPage }) => {
                                         <label htmlFor='editComment__editCaption'>
                                             <input
                                                 className='editComment__captionInput'
-                                                placeholder='Update Caption:'
+                                                // placeholder={`Update Caption: ${currCaption}`}
+                                                value={currCaption}
                                                 type='text'
                                                 onChange={(e) => setCurrCaption(e.target.value)}
                                             />
@@ -82,7 +87,7 @@ const SinglePageView = ({ select, setShowPage }) => {
 
                     </div>
                     <div className="singlePageView__commentSection">
-                        <SinglePageCommentSection select={select} handleClose={handleClose}/>
+                        <SinglePageCommentSection currCaption={currCaption} select={select} handleClose={handleClose}/>
                     </div>
                 </div>
 

@@ -38,15 +38,24 @@ def new_post():
 
 @posts_routes.route('/<int:id>', methods=['PUT'])
 def update_post(id):
-    form = PostForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        update_post = Post.query.get(id)
-        form.populate_obj(update_post)
+    updated_post = request.get_json(force=True)
+    existing_post = Post.query.get(id)
+    existing_post.caption = updated_post['caption']
+    # db.session.add(new_caption)
+    db.session.commit()
+    return  existing_post.to_dict()
+    # form = PostForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     form.populate_obj(update_post)
 
-        db.session.add(update_post)
-        db.session.commit()
-        return update_post.to_dict()
+
+
+    #     db.session.add(update_post)
+    #     db.session.commit()
+    #     return None
+        # return update_post.to_dict()
+
 
 @posts_routes.route('/<int:id>', methods=['DELETE'])
 def delete_post(id):
