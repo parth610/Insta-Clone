@@ -49,7 +49,7 @@ export const createComment = (comment, post_id) => async (dispatch) => {
   }
 }
 
-export const editComment = (comment) => async (dispatch) => {
+export const editOneComment = (comment) => async (dispatch) => {
   const res = await fetch(`/api/comments/${comment.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -58,7 +58,7 @@ export const editComment = (comment) => async (dispatch) => {
 
   if (res.ok) {
     const comment = await res.json()
-    dispatch(editComment(comment))
+    dispatch(editCommentActionCreator(comment))
     return comment
   }
 }

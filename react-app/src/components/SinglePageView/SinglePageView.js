@@ -20,11 +20,11 @@ const SinglePageView = ({ select, setShowPage }) => {
     }
 
     const handleDeleteModalOpen = () => {
-        setShowDeleteModal(true)
+        setShowDeleteModal(!showDeleteModal)
     }
 
     const handleDeleteModalclose = () => {
-        setShowDeleteModal(false)
+        setShowDeleteModal(!showDeleteModal)
     }
 
     const handleSubmit = async (e) => {
@@ -74,7 +74,7 @@ const SinglePageView = ({ select, setShowPage }) => {
                                     </form>
                                 }
                                 {showDeleteModal ? <div className='verify-delete'>
-                                    <button type='button' onClick={handleDelete}>Delete</button>
+                                    <button type='button' onClick={handleDelete}>Delete Post</button>
                                     <button type='button' onClick={handleDeleteModalclose}>Cancel</button>
                                 </div> : null}
                             </div>
