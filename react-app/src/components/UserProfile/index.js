@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { loadfollowing } from "../../store/following";
 import { followUnfollow, loadfollowers } from "../../store/follows";
 import { loadUsersPosts } from "../../store/posts";
 import { loadUserProfile } from "../../store/userProfile";
 import './UserProfile.css'
+import profileTemImage from '../../images/user.png'
 
 const UserProfileComponent = ({user}) => {
-
+    const history = useHistory()
     const dispatch = useDispatch()
     const userProfile = Object.values(useSelector(state => state.UserProfileReducer))
     const userFollowers = Object.values(useSelector(state => state.followsReducer))
@@ -16,6 +17,9 @@ const UserProfileComponent = ({user}) => {
     const userPosts = Object.values(useSelector(state => state.posts))
 
     const [showFollow, setShowFollow] = useState(false)
+    const [unfollowButton, setUnfollowButton] = useState(false)
+    const [showFollowersList, setShowFollowersList] = useState(false)
+    const [showFollowingList, setShowFollowingList] = useState(false)
     const {userId} = useParams()
 
     useEffect(() => {
@@ -35,6 +39,14 @@ const UserProfileComponent = ({user}) => {
     }, [userId, dispatch])
 
     useEffect(() => {
+        const checkUser = userFollowers.find(getuser => user?.id === getuser?.follower_id)
+        if (checkUser) {
+            setUnfollowButton(true)
+        }
+    }, [userId, dispatch, userFollowers.length])
+
+
+    useEffect(() => {
         if (user.id === +userId) {
             setShowFollow(false)
         } else {
@@ -46,6 +58,18 @@ const UserProfileComponent = ({user}) => {
         e.preventDefault();
         const followeeId = +e.currentTarget.id;
         await dispatch(followUnfollow(followeeId))
+        if (unfollowButton === true) {
+            setUnfollowButton(false)
+        } else {
+            setUnfollowButton(true)
+        }
+    }
+
+    const redirectUser = (e) => {
+        e.preventDefault()
+        setShowFollowersList(false)
+        setShowFollowingList(false)
+        return history.push(`/users/${e.currentTarget.id}`)
     }
 
     return (
@@ -53,7 +77,7 @@ const UserProfileComponent = ({user}) => {
         <div className="user-profile-container">
             <div className="user-profile-header">
                 <div className="profile-pic-container">
-                    <img src={userProfile[0]?.profile_pic} />
+                    <img src={userProfile[0]?.profile_pic === null ? `${profileTemImage}` : `${userProfile[0]?.profile_pic}`} />
                 </div>
                 <div className="header-info">
                     <div className="username-cont">
@@ -64,14 +88,14 @@ const UserProfileComponent = ({user}) => {
                     </div>
                     { showFollow &&
                     <div className="follow-button-container">
-                        <button id={userProfile[0]?.id} onClick={followHandler}>Follow</button>
+                        <button id={userProfile[0]?.id} onClick={followHandler}>{unfollowButton ? 'Unfollow' : `Follow`}</button>
                     </div>
                     }
                     <div className="follows-info-container">
-                        <div className="followers-list-container">
+                        <div className="followers-list-container" onClick={() => setShowFollowersList(true)}>
                             {userFollowers.length} Followers
                         </div>
-                        <div className="following-list-container">
+                        <div className="following-list-container" onClick={() => setShowFollowingList(true)}>
                             {userFollowees.length} Following
                         </div>
                     </div>
@@ -87,6 +111,42 @@ const UserProfileComponent = ({user}) => {
                     }
             </div>
         </div>
+        <div className="user-profile-footer">
+        </div>
+        {showFollowersList && <div className="followers-list-bg" onClick={(e) => setShowFollowersList(false)}>
+            <div className="followers-list-show-container" onClick={(e) => e.stopPropagation()}> <p>Followers</p>
+                {
+                    userFollowers && userFollowers.map(follower => (
+                        <div key={follower.id} className="follower-list-ele" id={follower.follower_id} onClick={redirectUser}>
+                            <div className="follower-image-container">
+                                <img className="follower-img-ele" src={follower.follower_profile_pic === null ? `${profileTemImage}` : `${follower.follower_profile_pic}` }></img>
+                            </div>
+                            <div className="follower-username">
+                                <div> {follower.follower_username} </div>
+                                <div className="follower-fullname"> {follower.follower_firstname} {follower.follower_lastname}</div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>}
+        {showFollowingList && <div className="followers-list-bg" onClick={(e) => setShowFollowingList(false)}>
+            <div className="followers-list-show-container" onClick={(e) => e.stopPropagation()}> <p>Following</p>
+                {
+                    userFollowees && userFollowees.map(followee => (
+                        <div key={followee.id} className="follower-list-ele" id={followee.followee_id} onClick={redirectUser}>
+                            <div className="follower-image-container">
+                                <img className="follower-img-ele" src={followee.followee_profile_pic === null ? `${profileTemImage}` : `${followee.followee_profile_pic}`}></img>
+                            </div>
+                            <div className="follower-username">
+                                <div> {followee.followee_username} </div>
+                                <div className="follower-fullname"> {followee.followee_firstname} {followee.followee_lastname}</div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>}
         </div>
     )
 }

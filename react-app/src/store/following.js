@@ -35,7 +35,7 @@ export default function followingReducer(state = initialState, action) {
         case GET_FOLLOWING: {
             const newState = {}
             action.following.map(followee => (
-                newState[followee.id] = action.following
+                newState[followee.id] = followee
             ))
             return newState
         }

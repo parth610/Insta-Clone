@@ -14,5 +14,13 @@ class Follow(db.Model):
         return {
             'id': self.id,
             'follower_id': self.follower_id,
-            'followee_id': self.followee_id
+            'followee_id': self.followee_id,
+            'follower_profile_pic': self.follower.profile_pic,
+            'followee_profile_pic': self.followee.profile_pic,
+            'follower_username': self.follower.username,
+            'followee_username':self.followee.username,
+            'follower_firstname': self.follower.first_name,
+            'followee_firstname':self.followee.first_name,
+            'follower_lastname': self.follower.last_name,
+            'followee_lastname':self.followee.last_name
         }

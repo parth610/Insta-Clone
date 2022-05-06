@@ -44,7 +44,7 @@ export default function followsReducer(state = initialState, action) {
     switch (action.type) {
         case UPDATE_FOLLOW: {
             newState = { ...state }
-            
+
             if (Object.keys(newState).includes(`${action.follow.id}`)) {
 
                 delete newState[action.follow.id]
@@ -56,8 +56,9 @@ export default function followsReducer(state = initialState, action) {
         }
         case GET_FOLLOWERS: {
             newState = {}
+
             action.followers.map(follower => (
-                newState[follower.id] = action.follower
+                newState[follower.id] = follower
             ))
             return newState
         }
