@@ -11,7 +11,6 @@ const NavBarMid = () => {
     // const tester = useSelector(state => console.log(state.search.search_results, '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'))
     // console.log(search_result, 'search_result search_result search_result search_result search_result search_result')
     const dispatch = useDispatch()
-
     useEffect(() => {
         if (searchInput) {
             dispatch(searchResultThunk(searchInput))
@@ -35,13 +34,28 @@ const NavBarMid = () => {
                 </div>
             </div>
 
-                <div className="navBar__searchResults">
-                    {search_user?.map(user => (
-                        <NavLink to={`/users/${user.id}`}>
-                            <ul className='navBar__users'>{user?.username}</ul>
-                        </NavLink>
-                    ))}
-                </div>
+            <div className="navBar__searchResults">
+                {search_user?.map(user => (
+                    <NavLink to={`/users/${user.id}`}>
+                        <ul className='navBar__users'>
+                            <div className="navBar__imageContainer">
+                                {user?.profile_pic ?
+                                <img className='navBar__profilePic' src={user?.profile_pic} alt='profile_pic' /> :
+                                <div className="navBar__defaultPic">{user?.username[0]}</div>
+                                }
+                            </div>
+                            <div className="navBar__user">
+                                <h5 className="navBar__fullName">
+                                    {`${user?.first_name} ${user?.last_name}`}
+                                </h5>
+                                <h5>
+                                    {user?.username}
+                                </h5>
+                            </div>
+                        </ul>
+                    </NavLink>
+                ))}
+            </div>
         </div>
     )
 }
