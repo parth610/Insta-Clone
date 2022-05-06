@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { login, signUp } from '../../store/session';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [validationErrors, setValidationErrors] = useState([]);
+  const [showErrors, setShowErrors] = useState(false)
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -17,15 +18,33 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const history = useHistory()
 
+  useEffect(() => {
+    const errs = []
+    if (firstName.length === 0) errs.push("Please provide a first name.")
+    if (lastName.length === 0) errs.push("Please provide a last name.")
+    if (username.length === 0) errs.push("Please provide a username.")
+    if (email.length === 0) errs.push("Please provide an email address.")
+    if (!email.includes('@')) errs.push("Please provide a valid email.")
+    if (password.length === 0) errs.push("Please provide a password.")
+    if (password !== repeatPassword) errs.push("Passwords do not match.")
+    setValidationErrors(errs)
+  }, [firstName, lastName, username, email, password, repeatPassword])
+
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if (validationErrors.length === 0) {
       const data = await dispatch(signUp(firstName, lastName, username, email, password));
-      if (data.errors) {
-        setErrors(data)
+      if (data) {
+        console.log(data)
+        setValidationErrors(data)
+        return
+      } else {
+        setShowErrors(false)
+        history.push('/home')
       }
+    } else {
+      setShowErrors(true)
     }
-    history.push('/home')
   };
 
   const handleDemo = async (e) => {
@@ -73,11 +92,11 @@ const SignUpForm = () => {
 
   return (
     <form className='login-form' onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
+      {showErrors && <div>
+        {validationErrors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div>}
       <input
         className='login-input'
         placeholder='First Name'
