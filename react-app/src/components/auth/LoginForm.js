@@ -1,24 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { login } from '../../store/session';
 
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [validationErrors, setValidationErrors] = useState([]);
+  const [showErrors, setShowErrors] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const history = useHistory()
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const errs = []
+    if (email.length === 0) errs.push("Please provide an email address.")
+    if (!email.includes('@')) errs.push("Please provide a valid email.")
+    if (password.length === 0) errs.push("Please provide a password.")
+    setValidationErrors(errs)
+  }, [email, password])
+
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
+    if (validationErrors.length === 0) {
+      const data = await dispatch(login(email, password));
+      if (data) {
+        console.log(data)
+        setValidationErrors(data)
+        return
+      } else {
+        setShowErrors(false)
+        history.push('/home')
+      }
+    } else {
+      setShowErrors(true)
     }
-    history.push('/home')
   };
 
   const handleDemo = async (e) => {
@@ -46,11 +63,11 @@ const LoginForm = () => {
 
   return (
     <form className='login-form' onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
+      {showErrors && <div>
+        {validationErrors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div>}
         <input
           className='login-input'
           name='email'
