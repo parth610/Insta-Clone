@@ -14,7 +14,6 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
     const dispatch = useDispatch()
 
 
-
     const handleSubmit = async (e) => {
         e.preventDefault()
 
