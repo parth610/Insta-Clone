@@ -16,6 +16,7 @@ const UserProfileComponent = ({user}) => {
     const userFollowers = Object.values(useSelector(state => state.followsReducer))
     const userFollowees = Object.values(useSelector(state => state.followingReducer))
     const userPosts = Object.values(useSelector(state => state.posts))
+    userPosts.sort((a, b) => new Date(...b.created_at.split('/').reverse()) - new Date(...a.created_at.split('/').reverse()));
 
     const [showFollow, setShowFollow] = useState(false)
     const [unfollowButton, setUnfollowButton] = useState(false)
