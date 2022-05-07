@@ -23,18 +23,10 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
             user_id: sessionUser?.id
         }
 
-        console.log(new_comment)
-
         await dispatch(createComment(new_comment, select?.id))
 
     }
 
-
-    const handleDelete = async (e) => {
-        e.preventDefault()
-        await dispatch(deletePost(select?.id))
-        handleClose()
-    }
 
     return (
         <div className='comment-block'>
@@ -43,7 +35,7 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
                 <form className='new-comment-form' onSubmit={handleSubmit}>
                     <input
                         className='create-comment-input'
-                        placeholder='Leave a Comment:'
+                        placeholder="Leave a Comment:"
                         type='text'
                         onChange={(e) => setNewComment(e.target.value)}
                     />
