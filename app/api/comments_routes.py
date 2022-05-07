@@ -45,8 +45,10 @@ def update_comment(id):
     #     return update_comment.to_dict()
 
 @comments_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
 def delete_comment(id):
     delete_comment = Comment.query.get(id)
+    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", delete_comment)
     db.session.delete(delete_comment)
     db.session.commit()
     return delete_comment.to_dict()
