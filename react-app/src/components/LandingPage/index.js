@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 import homeVectorImage from '../../images/Flixtagram_home_vector.png';
-import instaLogo from '../../images/instagram_logo.png'
+import instaLogo from '../../images/flixtagram_logo.png'
 import './LandingPage.css'
 
 const LandingPage = () => {
