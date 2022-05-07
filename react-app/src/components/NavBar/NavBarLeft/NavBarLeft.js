@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import instaLogo from '../../../images/instagram_logo.png'
+import instaLogo from '../../../images/flixtagram_logo.png'
 import './NavBarLeft.css'
 const NavBarLeft = () => {
     return (

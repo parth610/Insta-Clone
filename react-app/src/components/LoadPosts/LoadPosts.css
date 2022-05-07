@@ -96,3 +96,9 @@
 .loadPost__likeCounter:hover {
   color: #5693db;
 }
+
+.view-likes-comp {
+  position: fixed;
+  top: 0px;
+
+}

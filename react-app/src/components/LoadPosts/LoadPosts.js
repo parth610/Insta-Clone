@@ -86,16 +86,18 @@ const LoadPosts = () => {
                                     <button type='button' id={post.id} onClick={likeUpdate}
                                         style={{ backgroundColor: 'transparent', outline: 'none', border: 'none' }}
                                     ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
-                                    <NavLink to={`/home/posts/likes/${post.id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}>
+                                    {/* <NavLink to={`/home/posts/likes/${post.id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}> */}
                                         <div className='loadPost__likeCounter' onClick={() => setShowModal(true)}>{likesFilter(post.id)} likes</div>
-                                    </NavLink>
+                                    {/* </NavLink> */}
                                 </div>
                                 {showModal && (
-                                    <Route path='/home/posts/likes/:postId'>
-                                        <Modal onClose={() => setShowModal(false)}>
-                                            <ViewLikeModal/>
-                                        </Modal>
-                                    </Route>
+                                    // <Route path='/home/posts/likes/:postId'>
+                                    //     <Modal onClose={() => setShowModal(false)}>
+                                    <div>
+                                        <ViewLikeModal/>
+                                    </div>
+                                    //     </Modal>
+                                    // </Route>
                                 )}
                             </div>
                         </div>
