@@ -53,6 +53,7 @@ export const allPosts = () => async (dispatch) => {
     })
     if (response.ok) {
         const posts = await response.json()
+        console.log(posts, ".<><>,.,.,,.,,.,")
         dispatch(allPostsActionCreator(posts))
         return posts;
     }
@@ -121,6 +122,7 @@ export default function postReducer(state = initialState, action) {
             return newState;
         }
         case ALL_POSTS: {
+
             newState = { ...state }
             action.posts.map(post => {
                 return newState[post.id] = post

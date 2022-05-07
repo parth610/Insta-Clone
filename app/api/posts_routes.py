@@ -13,7 +13,7 @@ def one_post(id):
 
 @posts_routes.route('/', methods=['GET'])
 def all_posts():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.id.desc()).all()
     return jsonify([post.to_dict() for post in posts])
 
 

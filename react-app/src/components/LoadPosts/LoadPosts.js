@@ -13,6 +13,10 @@ import ViewLikeModal from './ViewLikes/ViewLikeModal';
 const LoadPosts = () => {
     const likes = Object.values(useSelector(state => state.likes))
     const posts = Object.values(useSelector(state => state.posts))
+    // const sortedPosts = posts.sort((a, b) => b.created_at - a.created_at)
+    posts.sort((a, b) => new Date(...b.created_at.split('/').reverse()) - new Date(...a.created_at.split('/').reverse()));
+    // console.log(sortedPosts[1].created_at.split('/').reverse())
+    // console.log(sortedPosts, "-----------------------------")
     const [showPage, setShowPage] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const [select, setSelect] = useState({})
