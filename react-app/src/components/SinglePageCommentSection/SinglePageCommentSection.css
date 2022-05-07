@@ -1,7 +1,11 @@
 .all-comments-on-post{
     overflow-y: scroll;
+    height: 35em;
 }
 
+.all-comments-on-post::-webkit-scrollbar {
+    display: none;
+}
 .individual-comment-block {
     margin-top: 5px;
     border-bottom: 1px solid white;
