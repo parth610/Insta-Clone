@@ -66,7 +66,7 @@ const LoadPosts = () => {
 
     return (
         <div className='loadPosts'>
-            {showPage ? <div className="test__conatainer" onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
+            {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
             {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
@@ -93,7 +93,7 @@ const LoadPosts = () => {
                                 {showModal && (
                                     <Route path='/home/posts/likes/:postId'>
                                         <Modal onClose={() => setShowModal(false)}>
-                                            <ViewLikeModal/>
+                                            <ViewLikeModal />
                                         </Modal>
                                     </Route>
                                 )}
