@@ -65,12 +65,16 @@ export const editOneComment = (comment) => async (dispatch) => {
 
 export const deleteComment = (comment_id) => async (dispatch) => {
   const res = await fetch(`/api/comments/${comment_id}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    body: JSON.stringify({
+      comment_id
+    })
   })
-
+  console.log(res)
   if (res.ok) {
     const comment = await res.json()
-    dispatch(deleteComment(comment))
+    console.log(comment)
+    dispatch(deleteCommentActionCreator(comment))
     return comment
   }
 }

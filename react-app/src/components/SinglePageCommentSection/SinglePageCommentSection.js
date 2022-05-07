@@ -47,8 +47,8 @@ const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
     const handleDelete = async (e) => {
         const commentId = +e.currentTarget.id
         await dispatch(deleteComment(commentId))
-        const commentEditForm = document.getElementById(`deleteCommentFunc-${commentId}`)
-        commentEditForm.style.display = 'none'
+        // const commentEditForm = document.getElementById(`deleteCommentFunc-${commentId}`)
+        // commentEditForm?.style.display = 'none'
     }
 
     const handleEditComment = async (e) => {
