@@ -48,7 +48,8 @@ const SinglePageView = ({ select, setShowPage }) => {
     }
 
     return (
-        <div className="singlePageViewContainer" >
+        // e.stopPropagation, stops all the events child is supposed to inherit from parent
+        <div className="singlePageViewContainer" onClick={(e) => e.stopPropagation()}>
             <div className='singlePageView'>
                 <div className='singlePageContents'>
                     <div className="singlePageView__image" >
