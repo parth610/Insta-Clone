@@ -7,6 +7,7 @@ import { loadUsersPosts } from "../../store/posts";
 import { loadUserProfile } from "../../store/userProfile";
 import './UserProfile.css'
 import profileTemImage from '../../images/user.png'
+import SinglePageView from "../SinglePageView/SinglePageView";
 
 const UserProfileComponent = ({user}) => {
     const history = useHistory()
@@ -20,6 +21,8 @@ const UserProfileComponent = ({user}) => {
     const [unfollowButton, setUnfollowButton] = useState(false)
     const [showFollowersList, setShowFollowersList] = useState(false)
     const [showFollowingList, setShowFollowingList] = useState(false)
+    const [showPage, setShowPage] = useState(false)
+    const [select, setSelect] = useState({})
     const {userId} = useParams()
 
     useEffect(() => {
@@ -72,8 +75,21 @@ const UserProfileComponent = ({user}) => {
         return history.push(`/users/${e.currentTarget.id}`)
     }
 
+    const newNum = (e) => {
+        e.preventDefault()
+        let post_id = +e.currentTarget.id
+        const postSelect = userPosts.find(post => post.id === post_id)
+        setSelect(postSelect)
+        setShowPage(true)
+    }
+
+    const handleClose = () => {
+        setShowPage(false)
+    }
+
     return (
         <div className="user-profile-container-parent">
+            {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
         <div className="user-profile-container">
             <div className="user-profile-header">
                 <div className="profile-pic-container">
@@ -104,7 +120,7 @@ const UserProfileComponent = ({user}) => {
             <div className="user-profile-posts">
                     {
                         userPosts && userPosts.map(post => (
-                            <div key={post.id} className="user-image-container">
+                            <div onClick={newNum} id={post.id} key={post.id} className="user-image-container">
                                 <img className="user-img" src={post.image_url}/>
                             </div>
                         ))
