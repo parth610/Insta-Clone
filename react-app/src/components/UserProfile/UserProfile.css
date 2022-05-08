@@ -156,6 +156,10 @@ body {
     overflow: scroll;
 }
 
+.followers-list-show-container::-webkit-scrollbar {
+    display: none;
+}
+
 .follower-list-ele {
     display: flex;
     padding: 10px;
