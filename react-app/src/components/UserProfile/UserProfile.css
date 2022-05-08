@@ -1,207 +1,212 @@
 body {
-    width: 100%;
-    font-family: poppins, sans-serif;
+  width: 100%;
+  font-family: poppins, sans-serif;
 }
 
 #root {
-    width: 100%;
+  width: 100%;
 }
 
 .user-profile-container-parent {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    overflow: scroll;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  overflow: scroll;
 }
 
+.user-profile-container-parent::-webkit-scrollbar {
+  display: none;
+}
 .user-profile-container {
-    width: 65%;
-    margin-top: 100px;
-    max-width: 1200px;
+  width: 65%;
+  margin-top: 100px;
+  max-width: 1200px;
 }
 
 .user-profile-header {
-    display: flex;
-    justify-content: flex-start;
-    padding: 5%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 5%;
 }
 
 .profile-pic-container {
-    width: 15%;
-    display: flex;
-    align-items: center;
+  width: 15%;
+  display: flex;
+  align-items: center;
 }
 
 .profile-pic-container > img {
-    border-radius: 100%;
-    width: 100%;
-    /* object-fit: contain; */
+  border-radius: 100%;
+  width: 100%;
+  /* object-fit: contain; */
 }
 
 .header-info {
-    margin: 0 0 0 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  margin: 0 0 0 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .username-cont {
-    font-size: 36px;
-    font-weight: 200;
+  font-size: 36px;
+  font-weight: 200;
 }
 
 .name-cont {
-    font-weight: 600;
-    margin: 5px 0 20px 0;
+  font-weight: 600;
+  margin: 5px 0 20px 0;
 }
 
 .follows-info-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .followers-list-container {
-    margin: 5px 20px 5px 0;
-    font-size: 24px;
-    font-weight: 300;
+  margin: 5px 20px 5px 0;
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .followers-list-container:hover {
-    cursor: pointer;
-    color:  #5693db;
+  cursor: pointer;
+  color: #5693db;
 }
 
 .following-list-container {
-    margin: 5px 5px 5px 0;
-    font-size: 24px;
-    font-weight: 300;
+  margin: 5px 5px 5px 0;
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .following-list-container:hover {
-    cursor: pointer;
-    color:  #5693db;
+  cursor: pointer;
+  color: #5693db;
 }
 
 .user-profile-posts {
-    border: solid rgba(0, 0, 0, 0.2);
-    border-width: 1px 0 0 0;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 20px;
-    overflow: scroll;
-    padding-bottom: 100px;
+  border: solid rgba(0, 0, 0, 0.2);
+  border-width: 1px 0 0 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  overflow: scroll;
+  padding-bottom: 100px;
 }
 
 .user-profile-posts::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .user-image-container {
-    margin: 10px;
-    width: 275px;
-    height: 275px;
+  margin: 10px;
+  width: 275px;
+  height: 275px;
 }
 
 .follow-button-container > button {
-    width: 100px;
-    padding: 7px;
-    font-family: poppins, sans-serif;
-    font-size: 14px;
-    background-color: #f4b545;
-    border: none;
-    color: white;
-    border-radius: 5px;
+  width: 100px;
+  padding: 7px;
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  background-color: #f4b545;
+  border: none;
+  color: white;
+  border-radius: 5px;
 }
 
 .follow-button-container > button:hover {
-    background-color: #5693db;
-    cursor: pointer;
+  background-color: #5693db;
+  cursor: pointer;
 }
 
 .user-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .user-profile-footer {
-    height: 100px;
+  height: 100px;
 }
 
 .followers-list-bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.719);
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.719);
+  z-index: 2;
+  display: flex;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .followers-list-show-container {
-    width: 30%;
-    max-width: 300px;
-    height: 40%;
-    background-color: white;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
-    background-color:  #dfeeff;
-    overflow: scroll;
+  width: 30%;
+  max-width: 300px;
+  height: 40%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  background-color: #dfeeff;
+  overflow: scroll;
 }
 
 .followers-list-show-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .follower-list-ele {
-    display: flex;
-    padding: 10px;
-    align-items: center;
+  display: flex;
+  padding: 10px;
+  align-items: center;
 }
 
 .follower-image-container {
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .followers-list-show-container > p {
-    text-align: center;
-    padding: 3px;
-    font-size: 18px;
-    font-weight: 500;
-    background-color: #f4b545;
-    color: white;
-    border-radius: 5px 5px 0 0;
-    position: relative;
+  text-align: center;
+  padding: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #f4b545;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  position: relative;
 }
 
 .follower-img-ele {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 100%;
 }
 
 .follower-list-ele:hover {
-    cursor: pointer;
-    background-color: #92c5ff;
-    transform: scale(0.95);
+  cursor: pointer;
+  background-color: #92c5ff;
+  transform: scale(0.95);
 }
 
 .follower-username {
-    font-family: poppins, sans-serif;
-    margin-left: 20px;
+  font-family: poppins, sans-serif;
+  margin-left: 20px;
 }
 
 .follower-fullname {
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.534);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.534);
 }

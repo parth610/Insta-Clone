@@ -79,3 +79,27 @@
     color: black;
     margin: 5px;
 }
+
+.post-user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(255, 240, 200);
+    margin-left: 1em;
+    border-radius: 999px;
+    width: 25px;
+    height: 25px;
+}
+
+.user-image {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+    background: rgb(255, 240, 200);
+    margin-left: 1em;
+    border-radius: 999px;
+    width: 25px;
+    height: 25px;
+}

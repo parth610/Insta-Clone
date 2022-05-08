@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Modal } from '../../context/Modal';
 import { PostModal } from '../../context/PostModal';
 import { getAllLikes, updateLike } from '../../store/likes';
@@ -17,6 +18,7 @@ const LoadPosts = () => {
     posts.sort((a, b) => new Date(...b.created_at.split('/').reverse()) - new Date(...a.created_at.split('/').reverse()));
     // console.log(sortedPosts[1].created_at.split('/').reverse())
     // console.log(sortedPosts, "-----------------------------")
+
     const [showPage, setShowPage] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const [select, setSelect] = useState({})
@@ -34,21 +36,31 @@ const LoadPosts = () => {
 
     const likesFilter = (post_id) => {
         let postLikes = likes.filter(like => like.post_id === post_id)
-        return postLikes.length
+
+        if (postLikes.length > 0) {
+            return postLikes.length + ' ' + 'likes'
+        }
     }
 
     const likeUpdate = async (e) => {
         e.preventDefault()
         const postId = +e.target.id
+        // let toggle = document.getElementById(postId)
         await dispatch(updateLike(postId))
+        // if (toggle.className.indexOf('liked') == -1) {
+        //     toggle.className += ' liked';
+        // }
+        // else {
+        //     toggle.className = toggle.className.replace(' liked', '')
+        // }
     }
 
-    // const savePostId = async (e) => {
-    // e.preventDefault()
-    // const postId = +e.currentTarget.id
-    // // let post = await dispatch(getPost(postId))
-    // return postId
-    // }
+    const savePostId = async (e) => {
+        e.preventDefault()
+        const postId = +e.currentTarget.id
+        // let post = await dispatch(getPost(postId))
+        return postId
+    }
 
     const newNum = (e) => {
         e.preventDefault()
@@ -66,8 +78,9 @@ const LoadPosts = () => {
         setShowPage(true)
     }
 
-
-
+    const currentTarget = (e) => {
+        console.log(e.currentTarget.id)
+    }
     return (
         <div className='loadPosts'>
             {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
@@ -75,10 +88,13 @@ const LoadPosts = () => {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
                         <div className="loadPost__imageContainer" id={post.id}>
-                        <div className='loadPost_user_info'>
-                            <NavLink to={`/users/${post.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '25%' }} src={post.profile_pic} /></NavLink>
-                            <NavLink to={`/users/${post.user_id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }} >{post.username}</NavLink>
-                        </div>
+                            <div className='loadPost_user_info'>
+                                {post?.profile_pic ?
+                                    <NavLink to={`/users/${post.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '25%' }} src={post.profile_pic} /></NavLink> :
+                                    <div className="defaultPic" >{post?.username[0]}</div>
+                                }
+                                <NavLink to={`/users/${post.user_id}`} style={{ textDecoration: 'none', cursor: 'pointer' }} >{post.username}</NavLink>
+                            </div>
                             <div className='loadPost_opaque_container' onClick={newNum} id={post.id}>
                                 <div id={post.id}>
                                     <img className='loadPost__image' src={post.image_url} alt={post.caption} />
@@ -92,18 +108,16 @@ const LoadPosts = () => {
                                 <div className="loadPost__lowerLikes">
                                     <button type='button' id={post.id} onClick={likeUpdate}
                                         style={{ backgroundColor: 'transparent', outline: 'none', border: 'none' }}
-                                    ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" ></i></button>
-                                    <NavLink to={`/home/posts/likes/${post.id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}>
-                                        <div className='loadPost__likeCounter' onClick={() => setShowModal(true)}>{likesFilter(post.id)} likes</div>
-                                    </NavLink>
+                                    ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" style={{ cursor: 'pointer' }} ></i></button>
+                                    {/* <NavLink to={`/home/posts/likes/${post.id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}> */}
+                                    <div className='loadPost__likeCounter' style={{ cursor: 'pointer' }} onClick={() => setShowModal(true)}>{likesFilter(post.id)}</div>
+                                    {/* </NavLink> */}
+
+                                    {showModal && (
+                                        <ViewLikeModal post_id={post.id} />
+                                        // <></>
+                                    )}
                                 </div>
-                                {showModal && (
-                                    <Route path='/home/posts/likes/:postId'>
-                                        <Modal onClose={() => setShowModal(false)}>
-                                            <ViewLikeModal />
-                                        </Modal>
-                                    </Route>
-                                )}
                             </div>
                         </div>
                     </div>
