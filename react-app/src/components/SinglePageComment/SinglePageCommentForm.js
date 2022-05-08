@@ -24,19 +24,18 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
         }
 
         await dispatch(createComment(new_comment, select?.id))
-
+        setNewComment('')
     }
-
 
     return (
         <div className='comment-block'>
             <div className='new-comment-block'>
-
                 <form className='new-comment-form' onSubmit={handleSubmit}>
                     <input
                         className='create-comment-input'
                         placeholder="Leave a Comment:"
                         type='text'
+                        value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                     />
                     <button type='submit'>Post Comment</button>
