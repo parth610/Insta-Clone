@@ -20,5 +20,7 @@ class Post(db.Model):
             'image_url': self.image_url,
             'caption': self.caption,
             'user_id': self.user_id,
-            'created_at': self.created_at
+            'created_at': self.created_at,
+            'username': self.user.username,
+            'profile_pic': self.user.profile_pic,
         }

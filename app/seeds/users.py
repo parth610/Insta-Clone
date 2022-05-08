@@ -11,7 +11,7 @@ def seed_users():
         last_name='Lition',
         private=False,
         owner=False,
-        profile_pic=None
+        profile_pic='https://cdn.vox-cdn.com/thumbor/XH2tgF14AsQnUKfWYepUNjaBrvI=/0x0:4888x3309/1200x800/filters:focal(1920x1193:2702x1975)/cdn.vox-cdn.com/uploads/chorus_image/image/70225295/1350241729.0.jpg'
         )
     marnie = User(
         username='marnie',
