@@ -75,7 +75,10 @@ const LoadPosts = () => {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
                         <div className="loadPost__imageContainer" id={post.id}>
-
+                        <div className='loadPost_user_info'>
+                            <NavLink to={`/users/${post.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '25%' }} src={post.profile_pic} /></NavLink>
+                            <NavLink to={`/users/${post.user_id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }} >{post.username}</NavLink>
+                        </div>
                             <div className='loadPost_opaque_container' onClick={newNum} id={post.id}>
                                 <div id={post.id}>
                                     <img className='loadPost__image' src={post.image_url} alt={post.caption} />
