@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { deletePost, editPost, allPosts } from '../../store/posts';
 import SinglePageCommentSection from '../SinglePageCommentSection/SinglePageCommentSection';
 import './SinglePageView.css'
@@ -64,7 +65,12 @@ const SinglePageView = ({ select, setShowPage }) => {
                                 <i className="fa-solid fa-pen-to-square editCommnet__edit" onClick={() => setShowModal(true)}></i>
                                 <i className="fa-solid fa-trash editComment__delete" onClick={handleDeleteModalOpen}></i>
                                 <div className='post-user-info'>
-                                    <img className='user-image' src={select?.profile_pic} />
+                                    {/* <img className='user-image' src={select?.profile_pic} /> */}
+                                    {select?.profile_pic ?
+                                        <NavLink to={`/users/${select?.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '50%' }} src={select.profile_pic} /></NavLink> :
+                                        <NavLink to={`/users/${select?.user_id}`} ><div className="defaultPic" >{select?.username[0]}</div></NavLink>
+                                    }
+                                    <NavLink to={`/users/${select?.user_id}`} style={{ textDecoration: 'none', cursor: 'pointer' }} >{select?.username}</NavLink>
                                 </div>
                                 {showModal &&
                                     <form className='editComment__form' onSubmit={handleSubmit}>
