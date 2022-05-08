@@ -82,6 +82,9 @@ const SinglePageView = ({ select, setShowPage }) => {
                                     <button type='button' onClick={handleDelete}>Delete Post</button>
                                     <button type='button' onClick={handleDeleteModalclose}>Cancel</button>
                                 </div> : null}
+                                <div className='post-user-info'>
+                                    <div className='user-image'><img src={select?.profile_pic} /></div>
+                                </div>
                             </div>
 
 
