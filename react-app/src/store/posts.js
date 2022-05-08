@@ -53,7 +53,7 @@ export const allPosts = () => async (dispatch) => {
     })
     if (response.ok) {
         const posts = await response.json()
-        console.log(posts, ".<><>,.,.,,.,,.,")
+
         dispatch(allPostsActionCreator(posts))
         return posts;
     }

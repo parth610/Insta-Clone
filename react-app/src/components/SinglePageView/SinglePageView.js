@@ -63,6 +63,9 @@ const SinglePageView = ({ select, setShowPage }) => {
                             <div className="post__icons">
                                 <i className="fa-solid fa-pen-to-square editCommnet__edit" onClick={() => setShowModal(true)}></i>
                                 <i className="fa-solid fa-trash editComment__delete" onClick={handleDeleteModalOpen}></i>
+                                <div className='post-user-info'>
+                                    <img className='user-image' src={select?.profile_pic} />
+                                </div>
                                 {showModal &&
                                     <form className='editComment__form' onSubmit={handleSubmit}>
                                         <label htmlFor='editComment__editCaption'>
@@ -82,9 +85,6 @@ const SinglePageView = ({ select, setShowPage }) => {
                                     <button type='button' onClick={handleDelete}>Delete Post</button>
                                     <button type='button' onClick={handleDeleteModalclose}>Cancel</button>
                                 </div> : null}
-                                <div className='post-user-info'>
-                                    <div className='user-image'><img src={select?.profile_pic} /></div>
-                                </div>
                             </div>
 
 
@@ -92,7 +92,7 @@ const SinglePageView = ({ select, setShowPage }) => {
 
                     </div>
                     <div className="singlePageView__commentSection">
-                        <SinglePageCommentSection currCaption={currCaption} select={select} handleClose={handleClose}/>
+                        <SinglePageCommentSection currCaption={currCaption} select={select} handleClose={handleClose} />
                     </div>
                 </div>
 

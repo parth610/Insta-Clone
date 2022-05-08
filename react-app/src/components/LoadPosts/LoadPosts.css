@@ -85,6 +85,7 @@
   border-radius: 0px 0px 10px 10px;
   border-top: #5693db solid 10px;
   justify-content: flex-start;
+  height: 1.5em;
   align-items: center;
   column-gap: 0.5em;
   padding-left: 1em;
@@ -92,14 +93,96 @@
 
 .loadPost__heartCount {
   color: rgb(246, 173, 71);
+  /* color: #5693db; */
 }
 
 .loadPost__likeCounter:hover {
   color: #5693db;
 }
 
+.liked {
+  /* color: rgb(246, 173, 71); */
+}
+
 .view-likes-comp {
   position: fixed;
   top: 0px;
-
 }
+
+.loadPost_user_info {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  column-gap: 0.5em;
+  margin-left: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.loadPost_user_info a:nth-child(2) {
+  color: black;
+}
+
+.loadPost_user_info a:nth-child(2):hover {
+  color: rgb(87, 147, 219);
+}
+
+.defaultPic {
+  height: 30px;
+  width: 30px;
+  border: solid black;
+  border-radius: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* .loadPost__users__liked__bg {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.719);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.follower-list-ele {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+
+.followers-list-show-container {
+  width: 30%;
+  max-width: 300px;
+  height: 40%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  background-color:  #dfeeff;
+  overflow: scroll;
+}
+
+.followers-list-show-container::-webkit-scrollbar {
+  display: none;
+}
+
+.followers-list-show-container > p {
+  text-align: center;
+  padding: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #f4b545;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+} */
