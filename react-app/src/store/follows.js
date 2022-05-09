@@ -20,7 +20,7 @@ export const followUnfollow = (followeeId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        console.log('--------',data,'----data------')
+
         dispatch(updateFollow(data))
         return response
     }

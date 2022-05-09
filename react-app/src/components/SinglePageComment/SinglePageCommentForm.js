@@ -22,9 +22,12 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
             content: newComment,
             user_id: sessionUser?.id
         }
-
-        await dispatch(createComment(new_comment, select?.id))
-        setNewComment('')
+        if (newComment.length > 0 ) {
+            await dispatch(createComment(new_comment, select?.id))
+            setNewComment('')
+        } else {
+            alert('Please provide a comment to submit')
+        }
     }
 
     return (

@@ -95,8 +95,7 @@ const LoadPosts = () => {
         setStorePostId(null);
     }
 
-    console.log(likes)
-
+  
     return (
         <div className='loadPosts'>
             {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}

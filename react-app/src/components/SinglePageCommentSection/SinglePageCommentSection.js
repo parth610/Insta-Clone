@@ -17,9 +17,9 @@ const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
 
     const handleDeleteModalOpen = (e) => {
         const commentId = +e.currentTarget.id
-        console.log(commentId)
+
         const commentDeleteButtons = document.getElementById(`deleteCommentFunc-${commentId}`)
-        console.log(commentDeleteButtons)
+
         commentDeleteButtons.style.display = 'flex'
     }
 
@@ -54,10 +54,14 @@ const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
     const handleEditComment = async (e) => {
         const commentId = +e.currentTarget.id
         const comment = { id: commentId, content: editComment }
-        await dispatch(editOneComment(comment))
-        const commentEditForm = document.getElementById(`commentForm-${commentId}`)
-        setEditComment('')
-        commentEditForm.style.display = 'none'
+        if (editComment.length > 0) {
+            await dispatch(editOneComment(comment))
+            const commentEditForm = document.getElementById(`commentForm-${commentId}`)
+            setEditComment('')
+            commentEditForm.style.display = 'none'
+        } else {
+            alert('comment must not be empty')
+        }
     }
 
     useEffect(() => {

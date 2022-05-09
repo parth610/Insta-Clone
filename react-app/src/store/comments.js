@@ -70,10 +70,10 @@ export const deleteComment = (comment_id) => async (dispatch) => {
       comment_id
     })
   })
-  console.log(res)
+
   if (res.ok) {
     const comment = await res.json()
-    console.log(comment)
+
     dispatch(deleteCommentActionCreator(comment))
     return comment
   }
