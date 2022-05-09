@@ -13,20 +13,20 @@ const LoginForm = () => {
   const history = useHistory()
   const dispatch = useDispatch();
 
+  let errs = []
   useEffect(() => {
-    const errs = []
     if (email.length === 0) errs.push("Please provide an email address.")
     if (!email.includes('@')) errs.push("Please provide a valid email.")
     if (password.length === 0) errs.push("Please provide a password.")
     setValidationErrors(errs)
-  }, [email, password])
+  }, [email, password, setValidationErrors])
 
   const onLogin = async (e) => {
     e.preventDefault();
     if (validationErrors.length === 0) {
       const data = await dispatch(login(email, password));
       if (data) {
-        console.log(data)
+     
         setValidationErrors(data)
         return
       } else {
@@ -57,9 +57,10 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to='/home' />;
-  }
+
+  // if (user) {
+  //   return <Redirect to='/home' />;
+  // }
 
   return (
     <form className='login-form' onSubmit={onLogin}>

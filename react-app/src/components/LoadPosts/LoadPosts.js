@@ -10,6 +10,7 @@ import { allPosts, getPost } from '../../store/posts';
 import SinglePageView from '../SinglePageView/SinglePageView';
 import './LoadPosts.css'
 import ViewLikeModal from './ViewLikes/ViewLikeModal';
+import profileTemImageView from '../../images/user.png'
 
 const LoadPosts = () => {
     const likes = Object.values(useSelector(state => state.likes))
@@ -20,8 +21,9 @@ const LoadPosts = () => {
     // console.log(sortedPosts, "-----------------------------")
 
     const [showPage, setShowPage] = useState(false)
-    const [showModal, setShowModal] = useState(false)
+    const [showlikesModal, setShowlikesModal] = useState(false)
     const [select, setSelect] = useState({})
+    const [storePostID, setStorePostId] = useState(null)
 
     const dispatch = useDispatch();
 
@@ -37,8 +39,12 @@ const LoadPosts = () => {
     const likesFilter = (post_id) => {
         let postLikes = likes.filter(like => like.post_id === post_id)
 
-        if (postLikes.length > 0) {
+        if (postLikes.length > 1) {
             return postLikes.length + ' ' + 'likes'
+        } else if (postLikes.length === 1) {
+            return '1 like'
+        } else {
+            return '0 likes'
         }
     }
 
@@ -78,9 +84,19 @@ const LoadPosts = () => {
         setShowPage(true)
     }
 
-    const currentTarget = (e) => {
-        console.log(e.currentTarget.id)
+    const viewLikesModal = (e) => {
+        const PostId = +e.currentTarget.id;
+        setStorePostId(PostId);
+        setShowlikesModal(true)
     }
+
+    const closeViewLikesModal = () => {
+        setShowlikesModal(false);
+        setStorePostId(null);
+    }
+
+    console.log(likes)
+
     return (
         <div className='loadPosts'>
             {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
@@ -110,20 +126,30 @@ const LoadPosts = () => {
                                         style={{ backgroundColor: 'transparent', outline: 'none', border: 'none' }}
                                     ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" style={{ cursor: 'pointer' }} ></i></button>
                                     {/* <NavLink to={`/home/posts/likes/${post.id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}> */}
-                                    <div className='loadPost__likeCounter' style={{ cursor: 'pointer' }} onClick={() => setShowModal(true)}>{likesFilter(post.id)}</div>
+                                    <div className='loadPost__likeCounter' style={{ cursor: 'pointer' }} id={post.id} onClick={viewLikesModal}>{likesFilter(post.id)}</div>
                                     {/* </NavLink> */}
-
-                                    {showModal && (
-                                        <ViewLikeModal post_id={post.id} />
-                                        // <></>
-                                    )}
                                 </div>
                             </div>
                         </div>
                     </div>
                 ))
             }
-
+            {showlikesModal && <div className='view-likes-modal-bg' onClick={closeViewLikesModal}>
+                <div className='view-likes-list-container' onClick={(e) => e.stopPropagation()}>
+                        {
+                            likes.filter(postLike => postLike.post_id === storePostID).map(like => (
+                                <div key={like.id} className='like-view-list-ele'>
+                                    <div className='like-view-profile-pic'>
+                                        <img className='like-view-profile-img-ele' src={like.user_profile_pic === null ? `${profileTemImageView}` : `${like.user_profile_pic}`}/>
+                                    </div>
+                                    <div className='like-view-name-cont'>
+                                    {like.user_fName} {like.user_lName}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                </div>
+            </div>}
         </div >
     )
 }

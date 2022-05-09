@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Modal } from '../../../context/Modal'
 import CreatePostModal from '../../CreatePost/CreatePostModal'
@@ -10,12 +10,23 @@ import './NavBarRight.css'
 
 const NavBarRight = () => {
     const [showModal, setShowModal] = useState(false)
+    const history = useHistory()
     // const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
 
     const showPostForm = () => {
         setShowModal(false)
     }
+
+    useEffect (() => {
+        if (user) {
+            history.push('/home')
+          }
+    }, [user])
+    // if (user) {
+    //     history.push('/home')
+    //   }
+
     return (
         <div className='navBar__right'>
             <div className="navBar__icons">
