@@ -21,8 +21,12 @@ const CreatePostModal = ({ showPostForm }) => {
             caption,
             user_id: sessionUser.id
         };
-        dispatch(createNewPost(post))
-        showPostForm();
+       if (imageUrl.length > 0 && caption.length > 0) {
+            dispatch(createNewPost(post))
+            showPostForm();
+        } else {
+            alert('do not leave the inputs empty')
+        }
     }
 
     const updateImageUrl = (e) => {

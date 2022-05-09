@@ -58,6 +58,7 @@ def update_post(id):
 
 
 @posts_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
 def delete_post(id):
     delete_post = Post.query.get(id)
     db.session.delete(delete_post)

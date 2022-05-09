@@ -10,6 +10,7 @@ const SinglePageView = ({ select, setShowPage }) => {
     const [showModal, setShowModal] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session.user)
 
     useEffect(() => {
         dispatch(allPosts())
@@ -60,7 +61,9 @@ const SinglePageView = ({ select, setShowPage }) => {
                         <div className=''>
                             <img className='singlePageView__pic' src={select?.image_url} alt='' />
 
-                            <div className="post__icons">
+                            { user.id === select?.user_id &&
+
+                                <div className="post__icons">
                                 <i className="fa-solid fa-pen-to-square editCommnet__edit" onClick={() => setShowModal(true)}></i>
                                 <i className="fa-solid fa-trash editComment__delete" onClick={handleDeleteModalOpen}></i>
                                 <div className='post-user-info'>
@@ -86,6 +89,7 @@ const SinglePageView = ({ select, setShowPage }) => {
                                     <button type='button' onClick={handleDeleteModalclose}>Cancel</button>
                                 </div> : null}
                             </div>
+                            }
 
 
                         </div>
