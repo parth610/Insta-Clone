@@ -144,7 +144,7 @@ const SignUpForm = () => {
         name='repeat_password'
         onChange={updateRepeatPassword}
         value={repeatPassword}
-        required={true}
+        // required={true}
       ></input>
       <div>
         {/* <label for='private-box'>Private
