@@ -41,7 +41,7 @@ const SinglePageCommentForm = ({ select, handleClose }) => {
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                     />
-                    <button type='submit'>Post Comment</button>
+                    <button className='edit-del-buttons' type='submit'>Post Comment</button>
                 </form>
             </div>
 

@@ -80,13 +80,13 @@ const SinglePageView = ({ select, setShowPage }) => {
                                                 onChange={(e) => setCurrCaption(e.target.value)}
                                             />
                                         </label>
-                                        <button type='submit'>Update</button>
-                                        <button type='button' onClick={() => setShowModal(false)} >Cancel</button>
+                                        <button className='edit-del-buttons' type='submit'>Update</button>
+                                        <button className='edit-del-buttons' type='button' onClick={() => setShowModal(false)} >Cancel</button>
                                     </form>
                                 }
                                 {showDeleteModal ? <div className='verify-delete'>
-                                    <button type='button' onClick={handleDelete}>Delete Post</button>
-                                    <button type='button' onClick={handleDeleteModalclose}>Cancel</button>
+                                    <button className='edit-del-buttons' type='button' onClick={handleDelete}>Delete Post</button>
+                                    <button className='edit-del-buttons' type='button' onClick={handleDeleteModalclose}>Cancel</button>
                                 </div> : null}
                             </div>
                             }

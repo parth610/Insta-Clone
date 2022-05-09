@@ -103,3 +103,13 @@
     width: 25px;
     height: 25px;
 }
+
+.edit-del-buttons {
+    margin: 2px;
+    background-color:  #f4b545;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-family: poppins, sans-serif;
+    border-radius: 5px;
+}

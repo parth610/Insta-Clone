@@ -95,8 +95,8 @@ const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
                                         type='text'
                                     />
                                 </label>
-                                <button id={comment.id} type='button' onClick={handleEditComment}>Update</button>
-                                <button id={comment.id} type='button' onClick={handleEditModalClose} >Cancel</button>
+                                <button className='edit-del-buttons' id={comment.id} type='button' onClick={handleEditComment}>Update</button>
+                                <button className='edit-del-buttons' id={comment.id} type='button' onClick={handleEditModalClose} >Cancel</button>
                             </div>
 
                             <div className='comment-text'>
@@ -108,8 +108,8 @@ const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
                                     <i id={comment.id} className="fa-solid fa-trash editComment__delete" onClick={handleDeleteModalOpen}></i>
 
                                     <div id={`deleteCommentFunc-${comment.id}`} style={{ display: "none" }} >
-                                        <button id={comment.id} type='button' onClick={handleDelete}>Delete</button>
-                                        <button id={comment.id} type='button' onClick={handleDeleteModalclose}>Cancel</button>
+                                        <button className='edit-del-buttons' id={comment.id} type='button' onClick={handleDelete}>Delete</button>
+                                        <button className='edit-del-buttons' id={comment.id} type='button' onClick={handleDeleteModalclose}>Cancel</button>
                                     </div>
 
                                 </div>
