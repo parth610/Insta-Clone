@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { allPosts } from '../../store/posts'
 import LoadPosts from '../LoadPosts/LoadPosts'
 import './Home.css'
 const Home = () => {
+    const history = useHistory()
+    const user = useSelector(state => state.session.user)
     const [users, setUsers] = useState([])
     const dispatch = useDispatch()
     const posts = Object.values(useSelector(state => state.posts))
@@ -22,6 +24,7 @@ const Home = () => {
         }
         allUsers()
     }, [])
+
 
     return (
         <div className='home'>

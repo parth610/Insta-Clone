@@ -29,20 +29,18 @@ function App() {
     <BrowserRouter>
       {user && <NavBar />}
       <Switch>
-          {user ?
-            <Route path='/home'>
+            <ProtectedRoute path='/home'>
               <Home />
-            </Route> :
+            </ProtectedRoute>
             <Route path='/' exact={true} >
               <LandingPage />
             </Route>
-          }
-          <ProtectedRoute path='/users' exact={true} >
-            <UsersList />
-          </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
             <UserProfileComponent user={user} />
           </ProtectedRoute>
+          <Route>
+            <h1>Page Not Found Please check your url</h1>
+          </Route>
       </Switch>
     </BrowserRouter>
   );
