@@ -12,9 +12,9 @@ const SinglePageView = ({ select, setShowPage }) => {
     const sessionUser = useSelector(state => state.session.user)
     const user = useSelector(state => state.session.user)
 
-    useEffect(() => {
-        dispatch(allPosts())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(allPosts())
+    // }, [dispatch])
 
     const handleClose = () => {
         setShowPage(false)

@@ -40,7 +40,7 @@ const UserProfileComponent = ({ user }) => {
 
     useEffect(() => {
         dispatch(loadUsersPosts(userId))
-    }, [userId, dispatch])
+    }, [userId, dispatch, showPage])
 
     useEffect(() => {
         const checkUser = userFollowers.find(getuser => user?.id === getuser?.follower_id)
