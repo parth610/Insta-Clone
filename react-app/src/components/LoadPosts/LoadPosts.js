@@ -105,8 +105,8 @@ const LoadPosts = () => {
                         <div className="loadPost__imageContainer" id={post.id}>
                             <div className='loadPost_user_info'>
                                 {post?.profile_pic ?
-                                    <NavLink to={`/users/${post.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '25%' }} src={post.profile_pic} /></NavLink> :
-                                    <div className="defaultPic" >{post?.username[0]}</div>
+                                    <NavLink to={`/users/${post.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '50%' }} src={post.profile_pic} /></NavLink> :
+                                    <NavLink to={`/users/${post.user_id}`} ><div className="defaultPic" >{post?.username[0]}</div></NavLink>
                                 }
                                 <NavLink to={`/users/${post.user_id}`} style={{ textDecoration: 'none', cursor: 'pointer' }} >{post.username}</NavLink>
                             </div>
