@@ -65,8 +65,8 @@ const SinglePageView = ({ select, setShowPage }) => {
                             { user.id === select?.user_id &&
 
                                 <div className="post__icons">
-                                <i className="fa-solid fa-pen-to-square editCommnet__edit" onClick={() => setShowModal(true)}></i>
-                                <i className="fa-solid fa-trash editComment__delete" onClick={handleDeleteModalOpen}></i>
+                                <i id='individual-image-icons' className="fa-solid fa-pen-to-square editCommnet__edit" onClick={() => setShowModal(true)}></i>
+                                <i id='individual-image-icons' className="fa-solid fa-trash editComment__delete" onClick={handleDeleteModalOpen}></i>
                                 <div className='post-user-info'>
                                     {/* <img className='user-image' src={select?.profile_pic} /> */}
                                     {select?.profile_pic ?

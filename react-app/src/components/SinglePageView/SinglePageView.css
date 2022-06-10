@@ -113,3 +113,10 @@
     font-family: poppins, sans-serif;
     border-radius: 5px;
 }
+
+.post__icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+}
