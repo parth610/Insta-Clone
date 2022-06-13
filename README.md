@@ -1,5 +1,5 @@
-# Flixagram
-Welcome to [Flixagram](https://flixtagram.herokuapp.com/) an Instgram clone made by [Jacob Chamberlain](https://github.com/JacobDChamberlain), [Parth Bhakta](https://github.com/parth610), [Mason Taylor](https://github.com/masontaylor7), [Gabriel Sitorus](https://github.com/GabeS97?tab=repositories)
+# Flixtagram
+Welcome to [Flixtagram](https://flixtagram.herokuapp.com/) an Instgram clone made by [Jacob Chamberlain](https://github.com/JacobDChamberlain), [Parth Bhakta](https://github.com/parth610), [Mason Taylor](https://github.com/masontaylor7), [Gabriel Sitorus](https://github.com/GabeS97?tab=repositories)
 
 # Index
 [Database Schema](https://github.com/parth610/Insta-Clone/wiki/Database-Schema) | [Frontend routes](https://github.com/parth610/Insta-Clone/wiki/Frontend-Routes) | [MVP Features](https://github.com/parth610/Insta-Clone/wiki/MVP-Features) | [User Stories](https://github.com/parth610/Insta-Clone/wiki/User-Stories)
@@ -26,7 +26,7 @@ Welcome to [Flixagram](https://flixtagram.herokuapp.com/) an Instgram clone made
 
 # Getting Started
 
-Visit our app at [Flixagram](https://flixtagram.herokuapp.com/). To install and run `Flixagram` on your local machine, please go ahead an follow the steps below:
+Visit our app at [Flixtagram](https://flixtagram.herokuapp.com/). To install and run `Flixtagram` on your local machine, please go ahead an follow the steps below:
 
 - Clone the repository, by copying and pasting the command below
 ```
@@ -72,5 +72,5 @@ npm install
 ```
 npm start
 ```
-- Happy browsing Flixagram! And thank you for visiting our app!
+- Happy browsing Flixtagram! And thank you for visiting our app!
 
