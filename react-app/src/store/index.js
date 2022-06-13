@@ -8,6 +8,7 @@ import followsReducer from './follows';
 import followingReducer from './following';
 import commentReducer from './comments';
 import searchReducer from './search';
+import userPostReducer from './userposts';
 
 const rootReducer = combineReducers({
   posts: postReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   UserProfileReducer,
   followsReducer,
   followingReducer,
-  search: searchReducer
+  search: searchReducer,
+  userPostReducer
 });
 
 

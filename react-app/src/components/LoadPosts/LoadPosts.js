@@ -95,7 +95,7 @@ const LoadPosts = () => {
         setStorePostId(null);
     }
 
-  
+
     return (
         <div className='loadPosts'>
             {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
@@ -111,7 +111,7 @@ const LoadPosts = () => {
                                 <NavLink to={`/users/${post.user_id}`} style={{ textDecoration: 'none', cursor: 'pointer' }} >{post.username}</NavLink>
                             </div>
                             <div className='loadPost_opaque_container' onClick={newNum} id={post.id}>
-                                <div id={post.id}>
+                                <div id={post.id} className='loadPost__image_parent'>
                                     <img className='loadPost__image' src={post.image_url} alt={post.caption} />
                                 </div>
                                 <div className="loadPost__captionBlock">

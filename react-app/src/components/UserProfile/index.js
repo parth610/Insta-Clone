@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { loadfollowing } from "../../store/following";
 import { followUnfollow, loadfollowers } from "../../store/follows";
-import { loadUsersPosts } from "../../store/posts";
+import { loadUsersPosts } from "../../store/userposts";
 import { loadUserProfile } from "../../store/userProfile";
 import './UserProfile.css'
 import profileTemImage from '../../images/user.png'
@@ -15,7 +15,7 @@ const UserProfileComponent = ({ user }) => {
     const userProfile = Object.values(useSelector(state => state.UserProfileReducer))
     const userFollowers = Object.values(useSelector(state => state.followsReducer))
     const userFollowees = Object.values(useSelector(state => state.followingReducer))
-    const userPosts = Object.values(useSelector(state => state.posts))
+    const userPosts = Object.values(useSelector(state => state.userPostReducer))
     userPosts.sort((a, b) => new Date(...b.created_at.split('/').reverse()) - new Date(...a.created_at.split('/').reverse()));
 
     const [showFollow, setShowFollow] = useState(false)
@@ -90,7 +90,7 @@ const UserProfileComponent = ({ user }) => {
 
     return (
         <div className="user-profile-container-parent">
-            {showPage ? <div className="test__conatainer" onClick={handleClose} onClose={handleClose}><SinglePageView onClose={handleClose} select={select} setShowPage={setShowPage} /></div> : null}
+            {showPage ? <div className="test__conatainer" onClick={handleClose}><SinglePageView select={select} setShowPage={setShowPage} /></div> : null}
             <div className="user-profile-container">
                 <div className="user-profile-header">
                     <div className="profile-pic-container">

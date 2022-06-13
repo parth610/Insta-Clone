@@ -2,6 +2,10 @@
   width: 100%;
   margin-top: 80px;
   margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .test__conatainer {
@@ -17,14 +21,22 @@
   left: 0px;
 }
 
+.loadPost__image_parent {
+  width: 600px;
+  height: 600px;
+}
+
 .loadPost__image {
-  height: 30%;
   width: 100%;
+  height: 100%;
   border-radius: 4px 4px 0px 0px;
+  object-fit: cover;
 }
 
 .loadPost__postCard {
   width: 100%;
+  max-width: 600px;
+  height: 800px;
   display: flex;
   margin: 0px;
   /* flex-direction: column; */
@@ -49,7 +61,8 @@
   align-items: center;
   border-radius: 8px;
   margin: 5%;
-  border: solid #5693db;
+  border: none;
+  background-color: white;
 }
 
 .loadPost__contents {
