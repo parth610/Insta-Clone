@@ -23,4 +23,7 @@ class Post(db.Model):
             'created_at': self.created_at,
             'username': self.user.username,
             'profile_pic': self.user.profile_pic,
+            'likes_users': [like.to_dict()['user_id'] for like in self.postlikes],
+            'comments': [comment.to_dict() for comment in self.comments],
+            'likes': [like.to_dict() for like in self.postlikes]
         }

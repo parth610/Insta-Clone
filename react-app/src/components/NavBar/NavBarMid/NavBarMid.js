@@ -30,11 +30,13 @@ const NavBarMid = () => {
                         value={searchInput}
                         className='search-icon'
                         placeholder='Search'
+                        onBlur={() => setSearchInput('')}
                     ></input>
                 </div>
             </div>
 
-            <div className="navBar__searchResults">
+            { search_user?.length > 0 &&
+                <div className="navBar__searchResults">
                 {search_user?.map(user => (
                     <NavLink to={`/users/${user.id}`}>
                         <ul className='navBar__users'>
@@ -55,7 +57,8 @@ const NavBarMid = () => {
                         </ul>
                     </NavLink>
                 ))}
-            </div>
+                </div>
+            }
         </div>
     )
 }

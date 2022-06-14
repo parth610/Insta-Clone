@@ -15,6 +15,7 @@ import profileTemImageView from '../../images/user.png'
 const LoadPosts = () => {
     const likes = Object.values(useSelector(state => state.likes))
     const posts = Object.values(useSelector(state => state.posts))
+    const user = useSelector(state => state.session.user)
     // const sortedPosts = posts.sort((a, b) => b.created_at - a.created_at)
     posts.sort((a, b) => new Date(...b.created_at.split('/').reverse()) - new Date(...a.created_at.split('/').reverse()));
     // console.log(sortedPosts[1].created_at.split('/').reverse())
@@ -59,6 +60,7 @@ const LoadPosts = () => {
         // else {
         //     toggle.className = toggle.className.replace(' liked', '')
         // }
+        await dispatch(allPosts())
     }
 
     const savePostId = async (e) => {
@@ -95,6 +97,7 @@ const LoadPosts = () => {
         setStorePostId(null);
     }
 
+    console.log(posts)
 
     return (
         <div className='loadPosts'>
@@ -102,14 +105,14 @@ const LoadPosts = () => {
             {
                 posts.map(post => (
                     <div key={post.id} className="loadPost__postCard">
-                        <div className="loadPost__imageContainer" id={post.id}>
                             <div className='loadPost_user_info'>
                                 {post?.profile_pic ?
-                                    <NavLink to={`/users/${post.user_id}`} ><img style={{ height: '30px', width: '30px', borderRadius: '50%' }} src={post.profile_pic} /></NavLink> :
+                                    <NavLink className='user-info-pic' to={`/users/${post.user_id}`} ><img style={{ height: '40px', width: '40px', borderRadius: '50%' }} src={post.profile_pic} /></NavLink> :
                                     <NavLink to={`/users/${post.user_id}`} ><div className="defaultPic" >{post?.username[0]}</div></NavLink>
                                 }
                                 <NavLink to={`/users/${post.user_id}`} style={{ textDecoration: 'none', cursor: 'pointer' }} >{post.username}</NavLink>
                             </div>
+                        <div className="loadPost__imageContainer" id={post.id}>
                             <div className='loadPost_opaque_container' onClick={newNum} id={post.id}>
                                 <div id={post.id} className='loadPost__image_parent'>
                                     <img className='loadPost__image' src={post.image_url} alt={post.caption} />
@@ -121,13 +124,14 @@ const LoadPosts = () => {
 
                             <div className="loadPost__contents">
                                 <div className="loadPost__lowerLikes">
-                                    <button type='button' id={post.id} onClick={likeUpdate}
+                                    <button className='like-button' type='button' id={post.id} onClick={likeUpdate}
                                         style={{ backgroundColor: 'transparent', outline: 'none', border: 'none' }}
-                                    ><i id={post.id} className="fa-solid fa-heart fa-lg loadPost__heartCount" style={{ cursor: 'pointer' }} ></i></button>
+                                    ><i id={post.id} className={post?.likes_users?.includes(user.id) ? "fas fa-heart fa-lg loadPost__heartCount" : "far fa-heart fa-lg loadPost__heartCount"} style={{ cursor: 'pointer' }} ></i></button>
                                     {/* <NavLink to={`/home/posts/likes/${post.id}`} style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}> */}
                                     <div className='loadPost__likeCounter' style={{ cursor: 'pointer' }} id={post.id} onClick={viewLikesModal}>{likesFilter(post.id)}</div>
                                     {/* </NavLink> */}
                                 </div>
+                                <div className='post-comments-read-container'>{post.comments.length} comments</div>
                             </div>
                         </div>
                     </div>

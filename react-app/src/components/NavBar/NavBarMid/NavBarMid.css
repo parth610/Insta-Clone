@@ -44,6 +44,7 @@
   row-gap: 5px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  padding: 20px 0;
 }
 
 .navBar__searchResults > a {
@@ -65,6 +66,7 @@
   align-items: center;
   width: 100%;
   column-gap: 1em;
+  padding: 5px;
 }
 
 .navBar__user {
@@ -80,6 +82,7 @@
 
 .navBar__user h5:nth-child(2) {
   color: rgb(144, 144, 144);
+  font-weight: 300;
 }
 
 .navBar__imageContainer {

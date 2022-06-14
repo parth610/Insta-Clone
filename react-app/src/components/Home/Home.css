@@ -28,8 +28,7 @@
   flex: 0.4;
   overflow-y: scroll;
   flex-direction: column;
-  /* background: rgb(255, 240, 200); */
-  background: #fff7e8;
+  background: rgba(255, 240, 200, 0);
   align-items: center;
   overflow-x: hidden;
 }

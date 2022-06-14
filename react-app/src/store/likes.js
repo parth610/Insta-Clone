@@ -1,6 +1,6 @@
 const SPECIFIC_POST_LIKES = 'likes/SPECIFIC_POST_LIKES'
 const ALL_LIKES = 'likes/ALL_LIKES'
-const UPDATE_LIKE = 'likes/UPDATE_LIKE'
+export const UPDATE_LIKE = 'likes/UPDATE_LIKE'
 
 const findAllLikesForPost = (likes) => ({
     type: SPECIFIC_POST_LIKES,
