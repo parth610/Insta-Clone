@@ -115,7 +115,8 @@ const LoadPosts = () => {
                         <div className="loadPost__imageContainer" id={post.id}>
                             <div className='loadPost_opaque_container' onClick={newNum} id={post.id}>
                                 <div id={post.id} className='loadPost__image_parent'>
-                                    <img className='loadPost__image' src={post.image_url} alt={post.caption} />
+                                    <img className='loadPost__image' src={post.url} alt={post.caption} />
+                                    {/* <img className='loadPost__image' src={post.image_url} alt={post.caption} /> */}
                                 </div>
                                 <div className="loadPost__captionBlock">
                                     <div className='caption_text'>{post.caption}</div>
