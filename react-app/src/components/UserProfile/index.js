@@ -122,7 +122,8 @@ const UserProfileComponent = ({ user }) => {
                     {
                         userPosts && userPosts.map(post => (
                             <div onClick={newNum} id={post.id} key={post.id} className="user-image-container">
-                                <img className="user-img" src={post.image_url} />
+                                <img className="user-img" src={post.url} />
+                                {/* <img className="user-img" src={post.image_url} /> */}
                             </div>
                         ))
                     }

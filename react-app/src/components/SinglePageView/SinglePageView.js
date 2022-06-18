@@ -60,7 +60,8 @@ const SinglePageView = ({ select, setShowPage }) => {
 
                     <div className="singlePageView__image" >
                         <div className=''>
-                            <img className='singlePageView__pic' src={select?.image_url} alt='' />
+                            <img className='singlePageView__pic' src={select?.url} alt='' />
+                            {/* <img className='singlePageView__pic' src={select?.image_url} alt='' /> */}
 
                             { user.id === select?.user_id &&
 

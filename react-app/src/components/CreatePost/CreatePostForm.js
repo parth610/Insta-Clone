@@ -5,7 +5,13 @@ import { createNewPost, allPosts } from '../../store/posts';
 
 const CreatePostForm = ({ showPostForm }) => {
     const [errors, setErrors] = useState([]);
+    // create by image url
     const [imageUrl, setImageUrl] = useState('');
+
+    // create by aws upload
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
+
     const [caption, setCaption] = useState('');
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
@@ -51,11 +57,17 @@ const CreatePostForm = ({ showPostForm }) => {
                 <div>
                     <label>Image Url</label>
                     <input
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                    />
+
+                    {/* <input
                         type='url'
                         name='imageUrl'
                         onChange={updateImageUrl}
                         value={imageUrl}
-                    ></input>
+                    ></input> */}
                     <label>Caption</label>
                     <input
                         type='text'

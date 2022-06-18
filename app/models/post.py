@@ -4,7 +4,8 @@ class Post(db.Model):
     __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
-    image_url = db.Column(db.String(5000), nullable=False)
+    # image_url = db.Column(db.String(5000), nullable=False)
+    url = db.Column(db.String, nullable=False)
     caption = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
@@ -17,7 +18,8 @@ class Post(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'image_url': self.image_url,
+            # 'image_url': self.image_url,
+            "url": self.url,
             'caption': self.caption,
             'user_id': self.user_id,
             'created_at': self.created_at,
