@@ -31,4 +31,9 @@ RUN pip install psycopg2
 
 # Start the flask environment by setting our
 # closing command to gunicorn app:app
-CMD gunicorn app:app
+
+
+# Replace the final line of your Dockerfile (the CMD) with this line: <CMD gunicorn --worker-class eventlet -w 1 app:app>
+# CMD gunicorn app:app
+
+CMD gunicorn --worker-class eventlet -w 1 app:app
