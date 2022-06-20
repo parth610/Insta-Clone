@@ -8,6 +8,7 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 import UserProfileComponent from './components/UserProfile';
+import DirectMessage from './components/DirectMessage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,18 +30,21 @@ function App() {
     <BrowserRouter>
       {user && <NavBar />}
       <Switch>
-            <ProtectedRoute path='/home'>
-              <Home />
-            </ProtectedRoute>
-            <Route path='/' exact={true} >
-              <LandingPage />
-            </Route>
+        <ProtectedRoute path='/home'>
+          <Home />
+        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <LandingPage />
+        </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
-            <UserProfileComponent user={user} />
-          </ProtectedRoute>
-          <Route>
-            <h1>Page Not Found Please check your url</h1>
-          </Route>
+          <UserProfileComponent user={user} />
+        </ProtectedRoute>
+        <ProtectedRoute path='/test/chat'>
+          <DirectMessage />
+        </ProtectedRoute>
+        <Route>
+          <h1>Page Not Found Please check your url</h1>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

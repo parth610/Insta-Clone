@@ -1,0 +1,18 @@
+.directMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+  height: 100%;
+}
+
+.directMessage__message {
+  background-color: lightblue;
+  border: solid wheat;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
