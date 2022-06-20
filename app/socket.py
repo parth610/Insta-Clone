@@ -1,19 +1,22 @@
-from flask_socketio import flask_socketio
+from flask_socketio import SocketIO, emit
 import os
 
-if os.environ.get("FLASK_ENV") == 'production':
-    origins=[
+
+# configure cors_allowed_origins
+if os.environ.get('FLASK_ENV') == 'production':
+    origins = [
         "http://flixtagram.herokuapp.com",
         'https://flixtagram.herokuapp.com/'
-]
+
+    ]
 else:
     origins = "*"
 
-
-#  create your SocketIO instance
+# initialize your socket instance
 socketio = SocketIO(cors_allowed_origins=origins)
 
-@socketio.on('chat')
+
+# handle chat messages
+@socketio.on("chat")
 def handle_chat(data):
-    # code to follow
-    emit('chat', data, broadcast=True)
+    emit("chat", data, broadcast=True)

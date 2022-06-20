@@ -18,10 +18,10 @@ const NavBarRight = () => {
         setShowModal(false)
     }
 
-    useEffect (() => {
+    useEffect(() => {
         if (user) {
             history.push('/home')
-          }
+        }
     }, [user])
     // if (user) {
     //     history.push('/home')
@@ -34,9 +34,9 @@ const NavBarRight = () => {
                     <i className="fa-solid fa-house fa-lg" id='navBar__home-ico'></i>
                 </NavLink>
 
-                {/* <NavLink className='navBar__messages' to='/message' activeStyle={{ color: '#5693db' }}>
+                <NavLink className='navBar__messages' to='/test/chat' activeStyle={{ color: '#f4b545' }}>
                     <i className="fa-solid fa-comment-dots fa-lg"></i>
-                </NavLink> */}
+                </NavLink>
 
                 <NavLink className='navBar__upload' to='/home/add_post' onClick={() => setShowModal(true)} activeStyle={{ color: '#f4b545' }}>
                     <i className="fa-solid fa-square-plus fa-lg" ></i>

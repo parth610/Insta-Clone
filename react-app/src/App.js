@@ -39,11 +39,11 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <UserProfileComponent user={user} />
         </ProtectedRoute>
+        <ProtectedRoute path='/test/chat'>
+          <DirectMessage />
+        </ProtectedRoute>
         <Route>
           <h1>Page Not Found Please check your url</h1>
-        </Route>
-        <Route path='/test/message'>
-          <DirectMessage />
         </Route>
       </Switch>
     </BrowserRouter>

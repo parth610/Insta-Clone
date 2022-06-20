@@ -5,7 +5,6 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 # import your socketio object (with the other imports at the top of the file)
-from .socket import socketio
 
 from .models import db, User
 from .api.user_routes import user_routes
@@ -16,6 +15,7 @@ from .api.likes_routes import likes_routes
 from .api.search_routes import search_routes
 from .api.comments_routes import comments_routes
 from .seeds import seed_commands
+from .socket import socketio
 
 from .config import Config
 
