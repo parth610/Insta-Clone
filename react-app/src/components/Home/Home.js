@@ -4,6 +4,17 @@ import { NavLink, useHistory } from 'react-router-dom'
 import { allPosts } from '../../store/posts'
 import LoadPosts from '../LoadPosts/LoadPosts'
 import './Home.css'
+
+import brokenImageFry from '../../images/fry.webp';
+
+
+// script to replace broken image link with a default image:
+const addDefaultImageSrc = (e) => {
+    e.target.src = brokenImageFry;
+}
+
+
+
 const Home = () => {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
@@ -44,7 +55,7 @@ const Home = () => {
 
                             <div className="home__avatar">
                             {developer?.profile_pic ?
-                                <NavLink to={`/users/${developer.id}`}><img className='home__displayPic' src={developer?.profile_pic} alt='' /></NavLink> :
+                                <NavLink to={`/users/${developer.id}`}><img onError={addDefaultImageSrc} className='home__displayPic' src={developer?.profile_pic} alt='' /></NavLink> :
                                 <div className='home__default'>{developer?.first_name[0]}</div>
                             }
                             </div>
