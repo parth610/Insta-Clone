@@ -9,6 +9,15 @@ import './UserProfile.css'
 import profileTemImage from '../../images/user.png'
 import SinglePageView from "../SinglePageView/SinglePageView";
 
+import brokenImageFry from '../../images/fry.webp';
+
+// script to replace broken image link with a default image:
+const addDefaultImageSrc = (e) => {
+    e.target.src = brokenImageFry;
+}
+
+
+
 const UserProfileComponent = ({ user }) => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -94,7 +103,7 @@ const UserProfileComponent = ({ user }) => {
             <div className="user-profile-container">
                 <div className="user-profile-header">
                     <div className="profile-pic-container">
-                        <img src={userProfile[0]?.profile_pic === null ? `${profileTemImage}` : `${userProfile[0]?.profile_pic}`} />
+                        <img onError={addDefaultImageSrc} src={userProfile[0]?.profile_pic === null ? `${profileTemImage}` : `${userProfile[0]?.profile_pic}`} />
                     </div>
                     <div className="header-info">
                         <div className="username-cont">
