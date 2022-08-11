@@ -80,6 +80,13 @@
   justify-content: space-between;
   column-gap: 1em;
   width: 100%;
+  padding: 5px;
+}
+
+.home__developerLabel:hover {
+  background-color: rgb(255, 240, 200);
+  border-radius: 14px;
+  /* border: 1px solid rgb(100, 146, 213); */
 }
 
 .developers__info {
