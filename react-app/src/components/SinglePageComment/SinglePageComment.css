@@ -138,3 +138,8 @@
 .editComment__delete:hover, .editCommnet__edit:hover {
   cursor: pointer;
 }
+
+
+.edit-del-buttons {
+  cursor: pointer;
+}
