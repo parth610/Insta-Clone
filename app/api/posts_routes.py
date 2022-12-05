@@ -42,7 +42,6 @@ def all_posts():
 @posts_routes.route("/", methods=["POST"])
 @login_required
 def upload_image():
-    print("test")
     if "image" not in request.files:
         return {"errors": "image required"}, 400
 
