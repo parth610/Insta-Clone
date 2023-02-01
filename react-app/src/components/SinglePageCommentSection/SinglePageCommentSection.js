@@ -6,6 +6,17 @@ import '../SinglePageCommentSection/SinglePageCommentSection.css'
 import userImg from '../../images/user.png'
 import { allPosts } from '../../store/posts';
 
+import brokenImageFry from '../../images/fry.webp';
+
+// script to replace broken image link with a default image:
+const addDefaultImageSrc = (e) => {
+    e.target.src = brokenImageFry;
+}
+
+
+
+
+
 const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
     const dispatch = useDispatch()
     const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -81,7 +92,7 @@ const SinglePageCommentSection = ({ select, handleClose, currCaption }) => {
                 {comments.map(comment => (
                     <div key={comment.id} className='individual-comment-block'>
                         <div className='comment-user-info'>
-                            <img className='comment-user-picture' src={comment.profile_pic ? comment.profile_pic : userImg} />
+                            <img onError={addDefaultImageSrc} className='comment-user-picture' src={comment.profile_pic ? comment.profile_pic : userImg} />
                             <div className='comment-username'>{comment.username}</div>
                         </div>
                         <div className='comment-contents'>

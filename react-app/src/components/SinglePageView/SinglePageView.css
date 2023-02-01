@@ -10,7 +10,8 @@
     z-index: 2;
     border: solid rgb(244, 181, 69);
     background-color: rgba(249, 240, 214, 0.876);
-    height: 90%;
+    height: 800px;
+    width: 1000px;
     display: flex;
     justify-content: center;
     border-radius: 5px;

@@ -5,6 +5,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { emptySearchThunk, searchResultThunk } from '../../../store/search'
 import './NavBarMid.css'
+
+import brokenImageFry from '../../../images/fry.webp';
+
+// script to replace broken image link with a default image:
+const addDefaultImageSrc = (e) => {
+    e.target.src = brokenImageFry;
+}
+
+
+
 const NavBarMid = () => {
     const [searchInput, setSearchInput] = useState('')
     const search_user = useSelector(state => state.search.search_results)
@@ -42,7 +52,7 @@ const NavBarMid = () => {
                         <ul className='navBar__users'>
                             <div className="navBar__imageContainer">
                                 {user?.profile_pic ?
-                                <img className='navBar__profilePic' src={user?.profile_pic} alt='profile_pic' /> :
+                                <img onError={addDefaultImageSrc} className='navBar__profilePic' src={user?.profile_pic} alt='profile_pic' /> :
                                 <div className="navBar__defaultPic">{user?.username[0]}</div>
                                 }
                             </div>
