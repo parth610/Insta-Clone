@@ -44,7 +44,7 @@ SSH: git clone git@github.com:parth610/Insta-Clone.git
 ```
 - In the root directory install all our python dependencies by running the following command:
 ```
- pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
  ```
 - After isntalling the dependencies, you will be prompted to enter the virtual enviornment with:
 ```
@@ -73,4 +73,3 @@ npm install
 npm start
 ```
 - Happy browsing Flixtagram! And thank you for visiting our app!
-
